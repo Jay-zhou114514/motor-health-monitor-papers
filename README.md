@@ -38,7 +38,7 @@ motor-health-monitor-papers/
 - 共同决策门 EXP-V1-04（良态特征集受控对照）已完成。
 - 初步判定：预测 1（条件数越高误报越多）**部分支持**；预测 2（条件数越高阈值越不稳定）**不支持**。
 - 误报只出现在含 RMS + 谱质心的特征组合，其距离膨胀比 > 1（1.35~1.50），其余组合 < 0.8。
-- 下一步：完成 **结果审查 → 假说判定 → 风险审查**，再更新双线路线并发布 V1.1。
+- 2026-09-15：结果审查与假说判定已完成（结论见 `shared/EXP-V1-04-DECISION-GATE.md`），V1-05 已锁定为 **Covariance Geometry & Regularization**；双线计划发布 V1.1。
 
 详见 `shared/EXP-V1-04-DECISION-GATE.md`。
 
@@ -49,3 +49,4 @@ motor-health-monitor-papers/
 | 实验 | `EXP-<阶段>-<两位序号>`（编号永不复用，注册表在 Master 仓库 `experiments/README.md`） |
 | 计划版本 | `RESEARCH_PLAN_v<major>.<minor>.md`（每条线各自维护） |
 | 版本变更 | `CHANGELOG.md`，分类：保留 / 删除 / 修改 / 新增 / 延后 / 因实验结果而改变 |
+
