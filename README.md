@@ -19,7 +19,7 @@ motor-health-monitor-papers/
 ├── README.md                  # 本文件
 ├── WORKFLOW.md                # 固定工作流（结果审查 → 假说判定 → 风险审查 → 更新路线 → 版本）
 ├── CHANGELOG.md               # 双线计划版本变更记录
-├── shared/                    # 两条线共享的规则、决策门、伦理与模板
+├── shared/                    # 共享规则、结构性决策记录、决策门、伦理与模板
 ├── conference-track/          # 会议线：计划、状态、论文骨架、投稿门槛
 └── journal-track/             # 期刊线：计划、状态、论文骨架、扩展政策、实验协议
 ```
@@ -49,4 +49,5 @@ motor-health-monitor-papers/
 | 实验 | `EXP-<阶段>-<两位序号>`（编号永不复用，注册表在 Master 仓库 `experiments/README.md`） |
 | 计划版本 | `RESEARCH_PLAN_v<major>.<minor>.md`（每条线各自维护） |
 | 版本变更 | `CHANGELOG.md`，分类：保留 / 删除 / 修改 / 新增 / 延后 / 因实验结果而改变 |
+
 
