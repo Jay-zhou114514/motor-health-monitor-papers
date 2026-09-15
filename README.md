@@ -49,5 +49,7 @@ motor-health-monitor-papers/
 | 实验 | `EXP-<阶段>-<两位序号>`（编号永不复用，注册表在 Master 仓库 `experiments/README.md`） |
 | 计划版本 | `RESEARCH_PLAN_v<major>.<minor>.md`（每条线各自维护） |
 | 版本变更 | `CHANGELOG.md`，分类：保留 / 删除 / 修改 / 新增 / 延后 / 因实验结果而改变 |
+| 桌面同步文件 | 中文名 + 版本号（如 `研究计划_V1.3.md`），不带英文前缀 |
+
 
 
