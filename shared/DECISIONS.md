@@ -57,3 +57,18 @@
 - 影响：
 - 状态：已确认 / 待确认 / 已废止（可能被 D-YYY 取代）
 ```
+
+---
+
+## D-004 研究 skill 安装范围
+
+- 日期：2026-09-16
+- 决策：只把 research_codex_skills_v3 中有实质内容的部分装成官方格式 skill：
+  research-stack-router、research-state，并新增项目专用 skill
+  motor-health-monitor-research（记录本项目的实验契约、证据等级、命名与工作流）。
+- 已否决：整包安装约 78 个模板化 skill —— 正文逐字重复、缺少 YAML frontmatter、
+  会稀释 skill 路由且违反"只保留能改变决策的信息"这一原则。
+- 依据：skill-creator 规范；官方校验脚本对 3 个新 skill 全部返回 Skill is valid!。
+- 影响：以后新增 skill 必须先有可区分的 name/description 与实质性内容，
+  不得直接复制 V3 模板文件。
+- 状态：已确认（2026-09-16）
