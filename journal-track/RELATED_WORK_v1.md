@@ -44,15 +44,15 @@ Gap：现有工作已建立"泄漏会高估性能"的认识（Kapoor 2023；Viei
 该定位与 2026 MSSP 论文互补：该文关注划分与数据集多样性，我们补充功效与单元独立性。
 
 ## 3.1 arXiv 盲区补充（Scopus 未覆盖）
-+
-+| 文献 | arXiv |
-+| --- | --- |
-+| A statistical approach to estimating sample size of ML models (2026) | 2609.09547 |
-+| Don't push the button! Exploring data leakage risks in ML and transfer learning (2024) | 2401.13796 |
-+| LeakageDetector / LeakageDetector 2.0 (2025) | 2503.14723 / 2509.15971 |
-+| Evaluating reliability in ML models … A systematic review of data leakage (2026) | 2607.11963 |
-+
-+## 4. 下一步
+
+| 文献 | arXiv |
+| --- | --- |
+| A statistical approach to estimating sample size of ML models (2026) | 2609.09547 |
+| Don't push the button! Exploring data leakage risks in ML and transfer learning (2024) | 2401.13796 |
+| LeakageDetector / LeakageDetector 2.0 (2025) | 2503.14723 / 2509.15971 |
+| Evaluating reliability in ML models … A systematic review of data leakage (2026) | 2607.11963 |
+
+## 4. 下一步
 
 1. 全文精读上述 5 篇（尤其 2026 MSSP），补齐作者、方法、结论与局限；
 2. 补充 Scopus 盲区检索（PHM Society、IEEE Xplore、arXiv）；
