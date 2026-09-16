@@ -100,3 +100,24 @@
 | WUBING2023/PaperSpine | 1a511c4 |
 | zsyggg/paper-craft-skills | 3be47a2 |
 | K-Dense-AI/scientific-agent-skills | 330c8e7 |
+
+---
+
+## D-006 补充安装 3 个 skill（按必要性判断）
+
+- 日期：2026-09-16
+- 决策：补充安装 `experiment-audit`（ARIS）、`research-review`（ARIS）、
+  `statistical-power`（K-Dense-AI/scientific-agent-skills）。
+- 理由：
+  - `experiment-audit`：本项目核心风险是数据泄漏与协议不严，需要独立的审计流程；
+  - `research-review`：对应"结果审查 → 假说判定 → 风险审查"的方向级复盘；
+  - `statistical-power`：本项目最大硬伤是统计功效不足（22 训练窗口 / 11 正常测试窗口），
+    需要量化"到底需要多少数据"。
+- 明确不装：
+  - google-deepmind/science-skills（生物基因组方向，与振动监测无关）；
+  - ARIS `auto-review-loop`（依赖跨模型 CLI，本机为 Codex 单环境）；
+  - ARIS 的海报 / 专利 / 投稿类 skill（当前阶段不需要）。
+- 规范化：3 个 skill 的 `argument-hint` / `compatibility` 已移入 `metadata`。
+- 结果：用户 skill 共 **24 个**，全部通过官方校验器。
+- 上游版本：ARIS `5371f05`；K-Dense-AI/scientific-agent-skills `330c8e7`。
+- 状态：**已确认（2026-09-16）**
