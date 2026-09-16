@@ -43,7 +43,7 @@ Gap：现有工作已建立"泄漏会高估性能"的认识（Kapoor 2023；Viei
 
 该定位与两篇先行工作互补：
 +
-+- Vieira et al. (2026, MSSP)：关注划分与数据集多样性；
++- Vieira et al. (2026, MSSP，**已读 40 页全文**)：数据泄漏审计 + bearing-wise 划分 + 多标签 + ROC 指标 + 轴承数量影响；面向**有标签分类**，关键词 unsupervised / one-class / anomaly detection / statistical power / sample size **均为 0 命中**；
 +- Knap et al. (2026, PHME，**已读全文**)：给出 CWRU+Paderborn 的 6 个固定跨域场景 +
 +  recording-level 泄漏安全评估；但不涉及统计功效，也不报告负结果。
 +
@@ -65,5 +65,6 @@ Gap：现有工作已建立"泄漏会高估性能"的认识（Kapoor 2023；Viei
 2. 补充 Scopus 盲区检索（PHM Society、IEEE Xplore、arXiv）；
 3. 把 `LIT_REVIEW_v1.md` 第 8 节的英文 Related Work 草稿并入论文骨架；
 4. 补经典 ML 基线（One-Class SVM / Isolation Forest），支撑"简单 vs 现代"的对比。
+
 
 
