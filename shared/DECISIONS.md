@@ -121,3 +121,19 @@
 - 结果：用户 skill 共 **24 个**，全部通过官方校验器。
 - 上游版本：ARIS `5371f05`；K-Dense-AI/scientific-agent-skills `330c8e7`。
 - 状态：**已确认（2026-09-16）**
+
+---
+
+## D-007 文献检索使用 Scopus，密钥不入库
+
+- 日期：2026-09-16
+- 决策：正式文献检索使用 Scopus Search API（`content/search/scopus`，
+  `TITLE-ABS-KEY` 检索），替代此前仅凭 12 篇人工整理文献的做法。
+- 安全：API key **不写入任何仓库文件**，仅在本机非仓库路径/环境变量中使用；
+  建议项目负责人在本次检索后轮换该 key。
+- 结果：扫描报告存于 Master 仓库 `docs/literature/SCOPUS_LITERATURE_SCAN_2026-09-16.md`，
+  原始计数 `docs/literature/scopus_counts.csv`；本仓库
+  `journal-track/LITERATURE_LANDSCAPE.md` 记录创新性定位。
+- 影响：期刊线的贡献定位改为"功效感知 + 批次级独立 + 多层级评价"的方法学方向；
+  技术交叉点（Mahalanobis + shrinkage + bearing = 1 篇）稀疏但不作为主要卖点。
+- 状态：**已确认（2026-09-16）**
