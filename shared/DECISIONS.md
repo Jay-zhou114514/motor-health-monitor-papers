@@ -72,3 +72,31 @@
 - 影响：以后新增 skill 必须先有可区分的 name/description 与实质性内容，
   不得直接复制 V3 模板文件。
 - 状态：已确认（2026-09-16）
+
+---
+
+## D-005 研究 skill 套件安装（GitHub 来源）
+
+- 日期：2026-09-16
+- 决策：按方向从 GitHub 安装 8 个套件中的**核心科研技能**（共 18 个 skill），
+  不整包安装（ARIS 189 / scientific-agent-skills 166 / AI-Research 98 个）。
+- 已安装映射（skill → 上游仓库）：
+  - nature-experiment-log / nature-statistics / nature-figure / nature-writing / nature-reviewer → Yuan1z0825/nature-skills
+  - academic-research-suite → Imbad0202/academic-research-skills-codex
+  - research-paper-writing → Master-cai/Research-Paper-Writing-Skills
+  - ablation-planner / experiment-plan / analyze-results / result-to-claim → wanshuiyin/Auto-claude-code-research-in-sleep (ARIS)
+  - autoresearch-skill（原 0-autoresearch-skill）→ Orchestra-Research/AI-Research-SKILLs
+  - paper-spine → WUBING2023/PaperSpine（dist/codex 构建）
+  - paper-analyzer → zsyggg/paper-craft-skills
+  - experimental-design / statistical-analysis / scientific-visualization / uncertainty-and-units → K-Dense-AI/scientific-agent-skills
+- 规范化：7 个 skill 的 Claude 专用 frontmatter 字段（argument-hint / compatibility /
+  author / tags / version）已移入 metadata；全部 21 个 skill 通过官方校验器。
+- 上游版本（安装时 commit）：
+| Yuan1z0825/nature-skills | 2375e0a |
+| Imbad0202/academic-research-skills-codex | 3c37ef8 |
+| Master-cai/Research-Paper-Writing-Skills | 77e7c2c |
+| wanshuiyin/Auto-claude-code-research-in-sleep | 5371f05 |
+| Orchestra-Research/AI-Research-SKILLs | 773a529 |
+| WUBING2023/PaperSpine | 1a511c4 |
+| zsyggg/paper-craft-skills | 3be47a2 |
+| K-Dense-AI/scientific-agent-skills | 330c8e7 |
