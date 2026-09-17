@@ -85,3 +85,35 @@ EXP-V1-04 与 EXP-V1-05 的结果审查、假说判定与风险审查均已于 2
 1. **G4**：核实 Paderborn（Zenodo `15845309`，K001–K006）的独立单元定义、许可与获取方式；
 2. 写 V2-01 预注册（跨体系复现：三层结论是否在另一试验台成立）；
 3. 更新 `PAPER_OUTLINE.md`：Layer 3 的图表与结论按 EXP-V1-10 结果落位。
+
+---
+
+## 2026-09-18 更新：证据链完成，论文定位与主结果句已更正
+
+**新增证据（Master 仓库）**：EXP-V1-10（选择过程不确定性）、方差分解、EXP-V1-11（样本量标度）、
+**EXP-V2-01（Paderborn，名义 n vs 有效信息）**、EXP-V2-02（跨 4 工况稳健性）。
+
+**门槛重新评估**：
+
+| 门槛 | 状态 | 说明 |
+| --- | --- | --- |
+| 核心研究问题明确 | 满足 | 报告的误报率能不能信、要多大的健康样本 |
+| 核心实验闭环 | **满足** | V1 三层 + V2 两个实验，全部有预注册与产物 |
+| 能解释现象 | 满足（有限定） | 噪声下限 + 名义/有效样本量 |
+| 可复现 | 满足 | 脚本 / 日志 / CSV / 图 + 断点续跑 |
+| 诚实区分证据等级 | 满足 | Level B，探索性标 Level C |
+| 跨体系证据 | **基本满足** | IMS + Paderborn（两个试验台、四个工况），但仅 6 个物理轴承 |
+
+**主结果句（已更正——旧句被方差分解否证）**
+
+> With ten healthy recordings, the training-internal selection criterion was
+> non-discriminative in 92% of resamples, and the reported false-alarm rate varied
+> between 0% and 14.3% (SD ≈ 4 pp). Increasing the nominal training size by resampling
+> the same recordings did not reduce this uncertainty (SD 18.0 pp at n = 96), whereas
+> using 96 *distinct* recordings reduced it to 0.0 pp; across four operating conditions,
+> the direction held in 3/4 and the required number of recordings was 80–96.
+
+**旧句（禁止再用）**："…purely as a function of which recordings entered the training set."
+理由：方差分解显示随机种子来源的 SD 为 4.39 pp，与划分来源 5.20 pp 量级相当。
+
+**下一步**：按 `CLAIM_EVIDENCE_MAP.md` 与 `PAPER_OUTLINE.md` 进入写作（先补 Fig. 1 概念图）。
