@@ -41,12 +41,29 @@
 16. Knap, P., Jachymczyk, U., & Lalik, K. (2026). Leakage-safe, reproducible benchmarking for vibration-based fault diagnosis. *PHM Society European Conference, 9*(1), 1–8. https://doi.org/10.36001/phme.2026.v9i1.4924
     - 核实：全文已读（同上）
 
-## C. 本文使用的公开数据集（引用必须指向原始论文/官方源）
+## C. 本文使用的公开数据集
 
-17. IMS bearing data — NASA/University of Cincinnati IMS test bed（引用以官方描述为准，定稿前补齐）。
-18. Lessmeier, C., Kimotho, J. K., Zimmer, D., & Sextro, W. (2016). Condition monitoring of bearing damage in electromechanical drive systems by using motor current signals of electric motors: A benchmark data set for data-driven classification. *PHM Society European Conference*. —— **Paderborn 数据集的原始论文；定稿前必须核实完整著录**
-    - 数据源核实：帕德堡 KAt 数据中心目录（2016 年文件），Zenodo `15845309` 为第三方镜像
-19. MFPT / MathWorks bearing fault data set（定稿前补齐官方著录）
+17. **Paderborn（已核实 DOI）**
+    Lessmeier, C., Kimotho, J. K., Zimmer, D., & Sextro, W. (2016). Condition monitoring of bearing damage
+    in electromechanical drive systems by using motor current signals of electric motors: A benchmark data
+    set for data-driven classification. *PHM Society European Conference*.
+    https://doi.org/10.36001/phme.2016.v3i1.1577
+    - 核实方式：Crossref（2026-09-19）→ DOI 返回标题与作者一致
+    - 数据源：帕德堡 KAt 数据中心目录（2016 年文件）；Zenodo `15845309` 为第三方镜像，**引用须用本条**
+
+18. **IMS（数据集引用，无 DOI）**
+    Lee, J., Qiu, H., Yu, G., Lin, J., & Rexnord Technical Services (2007). *Bearing Data Set*.
+    IMS, University of Cincinnati. NASA Ames Prognostics Data Repository.
+    - 说明：该数据以**仓库条目**形式发布，Crossref 无对应 DOI；**不得为其编造 DOI**
+    - 定稿前须从 NASA PCoE 官方页面确认著录格式
+
+19. **MFPT（数据集引用，无 DOI）**
+    Society for Machinery Failure Prevention Technology. *Bearing Fault Data* (MFPT dataset).
+    经由 MathWorks 分发。
+    - 说明：同上，无 DOI；使用前须确认官方命名与年份
+
+**引用纪律**：数据集引用若无可核实 DOI，**只写仓库形式并注明来源**，
+不得为了"看起来完整"而添加未经核实的年份、卷期或 DOI。
 
 ## D. 待办（写作前必须清零）
 
