@@ -17,15 +17,20 @@ Condition monitoring is frequently deployed where only healthy-machine data are 
 detector is fitted on healthy recordings, the alarm threshold is placed at a quantile of the
 training score distribution, and the reported false-alarm rate is the number that decides
 whether the monitor is usable. We ask how far that number can be trusted and what determines
-it. Using five public bearing sources under a pre-registered protocol, we find that the
-reported false-alarm rate is governed less by the detector than by three analyst choices.
+it. Using five public bearing sources under a pre-registered protocol, we find that three
+analyst choices each move the reported false-alarm rate by amounts comparable to, or larger
+than, changing the detector, although the three are measured on different estimands and on
+overlapping but different data, so we do not rank them.
 Holding out whole bearings, rather than only held-out recordings, raised the same detector's
 false-alarm rate from 0.00% to 40.63%. At a fixed sample size, increasing the number of
 distinct training bearings reduced the spread of the reported rate for two of three detectors
 (6 of 6 conditions each), whereas the third saturated and could not be evaluated this way.
-Moving the healthy/degraded boundary — a choice that run-to-failure data leave to the analyst
-— shifted the reported uncertainty by 2.4–5.2 percentage points, with the same rule binding
-on opposite sides in different datasets. We give a five-point reporting checklist and state
+Moving the healthy/degraded boundary, a choice that run-to-failure data leave to the analyst,
+shifted the reported uncertainty by 2.40 percentage points on PRONOSTIA, where the set of
+admissible bearings is identical under all five rules. On XJTU-SY the same sweep gave 5.19
+percentage points, but there the rule also changes which bearings qualify and k_max varies from
+11 to 14, so that figure mixes the boundary effect with a unit-count effect; we therefore
+restrict the boundary claim to the PRONOSTIA measurement. We give a five-point reporting checklist and state
 where each claim stops.
 
 ---
@@ -72,16 +77,34 @@ were re-run and compared hash-for-hash with their archived outputs (§3.5).
 
 ### 3.1 Scope: does the split keep physical units apart?
 
-Using the same detector, the same threshold rule and the same dataset, we compared two
-evaluation scopes on the Paderborn healthy bearings:
+Using the same detector (Isolation Forest, 200 trees, max_samples 0.5), the same threshold
+rule (0.99 quantile of the training scores) and the same dataset (Paderborn condition
+N15_M07_F10), we compared two evaluation scopes over the six healthy bearings:
 
 | Scope | Training used | Test used | Reported false-alarm rate |
 | --- | --- | --- | ---: |
 | within-bearing | recordings 1–16 of each bearing | recordings 17–20 of *the same* bearings | **0.00%** |
-| bearing-level holdout | all recordings of five bearings | all recordings of *the held-out* bearing | **40.63%** (folds 0.00–97.10%, n = 96 distinct training recordings) |
+| bearing-level holdout | all recordings of five bearings | all recordings of *the held-out* bearing | **40.63%** mean over six folds (fold means 0.00, 0.40, 1.55, 69.40, 75.35, 97.10%; between-fold SD 44.8 pp, SE 18.3 pp) |
 
-*Boundary*: one rig, six physical units. The direction is unambiguous; the magnitude should not
-be transferred without repeating the comparison.
+The two scopes are not equally replicated and we state this plainly. In the within-bearing arm
+the training budget of 96 recordings equals the entire training pool, so all 100 replicates draw
+the same subset and the 0.00% figure is a single deterministic evaluation rather than a
+distribution. That figure is 0 alarms in 24 test recordings, which gives a resolution of 4.17
+percentage points and an exact one-sided 95% upper bound of 11.7%; the defensible increase is
+therefore about 3.5-fold, not an order of magnitude. The holdout arm is replicated over six
+physical units, and its between-fold spread is large (SD 44.8 pp).
+
+We also report a preregistered criterion that failed. The experiment registered a primary
+comparison in which the new-records arm would show a smaller spread than a resampling arm at the
+same nominal size. That criterion held in 2 of 6 folds, because the resampling arm saturates:
+in three folds it alarms on every held-out recording and its spread is exactly zero, which is
+degenerate stability rather than a good result. The comparison reported here is therefore the
+new-records arm, and the saturation of the resampling arm is recorded as a separate failure mode
+rather than as evidence for the scope effect.
+
+*Boundary*: one rig, six physical units, one operating condition, one detector. The direction is
+unambiguous; the magnitude depends on the depth of the split and should not be transferred
+without repeating the comparison.
 
 ### 3.2 Units: how many independent bearings were used for training?
 
@@ -94,10 +117,19 @@ operating condition** as the held-out bearing:
 | Isolation Forest (200, 0.5) | **6/6** | **6/6** | 16.9–57.6% (PRONOSTIA 16.9–21.5%, XJTU-SY 54.5–57.6%; SD 23.9–44.4 pp) |
 | Mahalanobis distance | 2/6 | 2/6 | **66.8–100%** (one cell exactly 100%; SD 0.0–35.4 pp) |
 
-For the two non-saturated detectors, going from one training bearing to three or four halves the
-standard deviation of the reported rate **at a fixed number of recordings**.
+For the two non-saturated detectors, going from one training bearing to k_max reduces the
+standard deviation of the reported rate **at a fixed number of recordings**. The measured
+per-cell ratios SD(k_max)/SD(k=1) are 0.76, 0.75, 0.68, 0.68, 0.91 and 0.55 for 3σ RMS and 0.32,
+0.57, 0.34, 0.58, 0.86 and 0.52 for Isolation Forest, that is a reduction of roughly 10 to 45
+percent for the first detector and 14 to 68 percent for the second, not a uniform halving.
 
-*Boundary*: the Mahalanobis detector saturates at k = 1 (one cell is exactly 100%), so its
+*Boundary*: k_max is the number of training bearings available in that cell, which is 7, 7 and 3
+for the three PRONOSTIA conditions and 4, 4 and 5 for the three XJTU-SY conditions. The criterion
+for "decreases" is the rank correlation between k and the SD, not strict monotonicity; one cell
+is non-monotone (XJTU-SY 40Hz10kN rises from 20.02 pp at k=3 to 20.69 pp at k=4). The Mahalanobis
+exclusion is not a pre-defined saturation rule but a reclassification of a preregistered
+criterion that failed (Z1 and Z2 both 2 of 6 against a required 80 percent). The detector
+saturates at k = 1 (one cell is exactly 100%), so its
 spread is degenerate and the unit effect is **not testable in this form**; we report it as such
 rather than as a failure. The wider cross-condition comparison is confounded with
 operating-condition diversity and is therefore not used for the claim above.
@@ -121,8 +153,11 @@ alone; the cross-dataset claim is therefore **partially supported**.
 ### 3.4 What does not reproduce
 
 A covariance-geometry failure observed on a single fold (distance-inflation ratio 1.576 when
-holding out one MFPT healthy recording) reproduced in **1 of 27 folds** across MFPT and three
-IMS batches (MFPT 1/3, IMS 0/24). A power analysis gave the original comparison a power of
+holding out one MFPT healthy recording) did not reproduce in any **independent** fold: 0 of 26. The single
+occurrence (MFPT, holding out `baseline_3.mat`, ratio 1.576) is the same fold in which the
+effect was originally observed, with the same scheme and the same 22 training windows, so it is
+the original case re-evaluated rather than an independent reproduction. IMS contributes 0 of 24
+folds and MFPT 0 of 2 further folds. A power analysis gave the original comparison a power of
 0.087, so the appropriate reading is *underpowered and undetermined*, not *refuted*.
 
 ### 3.5 Reproducibility of these results
@@ -132,13 +167,13 @@ EXP-V2-06 were re-run and reproduced byte-for-byte. EXP-V1-10 reproduced exactly
 columns (only its wall-clock timing column differed). EXP-V1-05 to V1-09 passed invariant and
 independent-recomputation checks with a stored hash baseline. The experiment carrying §3.1
 (EXP-V2-03) has invariant and recomputation checks but has **not** been through a re-run
-comparison, and we flag this as a remaining limitation. Thirteen classes of
-analysis error were found and corrected during the study; all of them lay in the way results
-were summarised or verified, none in the data or the model fitting.
+comparison, and we flag this as a remaining limitation. Fourteen classes of analysis error were found and corrected during the study. Eleven lie in
+summary, verdict and verification logic, and three concern data handling such as seed
+derivation and file counting; none lies in the model fitting itself.
 
 ### 3.6 The evaluation protocol itself
 
-The checklist in §3.5 is not a recommendation drawn from first principles; it follows from four
+The checklist in §3.6 is not a recommendation drawn from first principles; it follows from four
 measurements on the small-sample regime that healthy-data-only monitoring actually occupies.
 
 **The selection criterion is often non-discriminative.** On IMS `1st_test` (12 healthy
@@ -154,18 +189,28 @@ configuration share of 33%.
 contributes no variance, the reported rate took the values 0.00%, 7.14% and 14.29% across the 50
 resamples (mean 3.86%, SD 4.13 pp). Decomposing that variation at the modal configuration gave
 SD 5.20 pp when the training composition changed and 4.39 pp when only the random seed changed,
-so hyperparameter choice accounts for little of the spread.
+The decomposition contains no hyperparameter component because it is computed at the modal
+configuration, which holds the configuration fixed by construction; we therefore make no claim
+about the size of the hyperparameter contribution. The third measured component, in which
+training composition and seed vary together, has SD 5.18 pp.
 
-**Resampling is not a substitute for data.** On the Paderborn bearings, increasing the nominal
-training size from 20 to 96 recordings by resampling the same 20 left the SD at 18.0 pp, whereas
-using 96 distinct recordings reduced it to 0.00 pp. The effect is visible in the accuracy of the
-estimator as well: expressed as effective sample size, the resampling arm stayed between 0.18 and
-0.38 while the distinct-recording arm passed 430.
+**Resampling is not a substitute for data.** On the Paderborn bearings, and under the
+within-bearing scope identified in §3.1 as the optimistic one, increasing the nominal training
+size from 20 to 96 recordings by resampling the same 20 left the SD at 18.0 pp, whereas using 96
+distinct recordings reduced it to 0.00 pp. The second figure is a quantisation floor, since every
+draw produced 0 alarms in 24 test recordings, and it must be read together with §3.1, where the
+same nominal size under a bearing-level holdout leaves fold rates between 0.00% and 97.10%. The effect is visible in the accuracy of the
+estimator as well: expressed as an effective sample size q(1-q)/SD^2 against the ideal independent-window
+reference, the resampling arm stayed between 0.18 and 0.38 while the distinct-recording arm
+passed 430; cells in which the SD was exactly zero are excluded from that range.
 
 **Search cost and stability trade off.** With hyperparameters selected inside the training data,
 Isolation Forest met a pre-set 5% false-alarm target in 3 of 3 IMS batches but needed roughly
-10^5 times the search cost of a 3σ RMS threshold and selected the same configuration in only 33%
-of folds; a one-class SVM met the target in 0 of 3.
+10^5 times the search cost of a 3σ RMS threshold and selected the same configuration in 33, 100 and 50 percent of folds across the three batches; a
+one-class SVM met the target in 0 of 3. The batch means were 1.19, 4.76 and 2.38 percent, one of
+which clears the cut by 0.24 percentage points, and single-fold resolution is about 14.3
+percentage points, so the 5 percent value is an operational cut for the comparison rather than a
+performance expectation.
 
 **Reporting checklist**
 
@@ -283,7 +328,7 @@ a threshold or a split.
 
 ### 5.4 A checklist rather than a method
 
-The practical output of this study is the five-point checklist in §3.5. It requires no new model
+The practical output of this study is the five-point checklist in §3.6. It requires no new model
 and no additional data collection beyond what a careful practitioner would already have; it
 changes only what is reported. Read against the observed effect sizes, the consequences are
 concrete: a study that reports a single within-bearing number may present a detector with a 40%
@@ -354,7 +399,7 @@ prospective self-collected study is the natural next test.
 **Fig. 1 | Three faces of evaluation uncertainty in healthy-data-only bearing anomaly detection.**
 **(a)** Evaluation scope. With detector, threshold and data fixed, holding out whole bearings
 raises the reported false-alarm rate from 0.00% (within-bearing) to 40.63% (bearing-level
-holdout; folds 0.4–97.1%). **(b)** Independent units. At a fixed budget of 20 recordings, drawing
+holdout; fold means 0.00 to 97.10 percent). **(b)** Independent units. At a fixed budget of 20 recordings, drawing
 training bearings from a single bearing yields mean false-positive rates of 16.9–57.6% for
 Isolation Forest and 23.7–49.5% for 3σ RMS (SD 23.9–44.4 pp and 33.0–48.2 pp respectively),
 whereas four bearings reduce the spread; the effect holds for 3σ RMS and Isolation Forest
