@@ -51,16 +51,20 @@
     - 核实方式：Crossref（2026-09-19）→ DOI 返回标题与作者一致
     - 数据源：帕德堡 KAt 数据中心目录（2016 年文件）；Zenodo `15845309` 为第三方镜像，**引用须用本条**
 
-18. **IMS（数据集引用，无 DOI）**
-    Lee, J., Qiu, H., Yu, G., Lin, J., & Rexnord Technical Services (2007). *Bearing Data Set*.
-    IMS, University of Cincinnati. NASA Ames Prognostics Data Repository.
-    - 说明：该数据以**仓库条目**形式发布，Crossref 无对应 DOI；**不得为其编造 DOI**
-    - 定稿前须从 NASA PCoE 官方页面确认著录格式
+18. **IMS —— 已按 NASA PCoE 官方页面逐字著录（2026-09-20 核实）**
+    Lee, J., Qiu, H., Yu, G., Lin, J., & Rexnord Technical Services (2007). IMS, University of Cincinnati.
+    "Bearing Data Set", NASA Prognostics Data Repository, NASA Ames Research Center, Moffett Field, CA.
+    - 核实方式：NASA PCoE 数据仓库页面（该条目自带 "Data Set Citation" 字段，本条为逐字引用）
+    - 官方下载：`https://phm-datasets.s3.amazonaws.com/NASA/4.+Bearings.zip`
+    - **无 DOI**，不得编造
 
-19. **MFPT（数据集引用，无 DOI）**
+19. **MFPT —— 官方著录格式未确认（如实标注）**
     Society for Machinery Failure Prevention Technology. *Bearing Fault Data* (MFPT dataset).
-    经由 MathWorks 分发。
-    - 说明：同上，无 DOI；使用前须确认官方命名与年份
+    - 2026-09-20 尝试核实：MFPT 官方 `fault-data-sets` 页面未给出该数据集的正式引用格式；
+      MathWorks 对应页面返回 403，无法读取。
+    - 处理：**保留仓库形式描述并标注"官方著录未确认"**；若定稿前仍无法核实，
+      须在论文中以脚注说明引用来源为分发方而非原始发布方。
+    - **不得编造作者、年份或 DOI**
 
 **引用纪律**：数据集引用若无可核实 DOI，**只写仓库形式并注明来源**，
 不得为了"看起来完整"而添加未经核实的年份、卷期或 DOI。
@@ -71,5 +75,6 @@
 - [x] **第 12 项作者更正**：原记 "Baumann & Baumann" **错误**，实为
       **Krstajic, Buturovic, Leahy, & Thomas (2014)**，标题亦按 Crossref 原文更正
 - [x] 第 17 项（Paderborn）DOI 已核实
-- [ ] 第 18、19 项（IMS / MFPT）官方著录格式仍待在官方页面确认（**无 DOI，不得自造**）
+- [x] 第 18 项（IMS）已按 NASA PCoE 官方 "Data Set Citation" 逐字著录
+- [ ] 第 19 项（MFPT）：**官方著录未确认**（MFPT 页面未提供、MathWorks 403）→ 保留仓库形式 + 脚注说明
 - [ ] **未覆盖**：中文文献与 PHM 系列会议论文集（已声明为已知缺口）
