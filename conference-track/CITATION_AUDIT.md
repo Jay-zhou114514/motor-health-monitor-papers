@@ -21,6 +21,8 @@
 | **语境未核验** | **5** | 仅凭标题使用，未读到摘要/全文 → **不得写成"已验证"** |
 
 **总体判定：WARN**，`reason_code: context_unverified_partial`
+（2026-09-20 更新：补齐摘要后，第 3 项转 SUPPORTS、第 4 项转 FIX、第 6 项 WEAK 已限定；
+第 11、13 项摘要不可得，降级为"标题层限定"并加脚注。修正方案见 `DRAFT_v0.6_related_work_fixes.md`）
 （按 skill 的判定表，无 REPLACE/REMOVE 即不构成 FAIL；但存在语境未核验项，不能判 PASS。）
 
 ## 第一层：存在性
