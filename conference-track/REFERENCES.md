@@ -13,28 +13,28 @@
    - 核实：arXiv API ✓
 4. Bouthillier, X., Delaunay, P., Bronzi, M., et al. (2021). Accounting for variance in machine learning benchmarks. *arXiv:2103.03098*.
    - 核实：arXiv API ✓
-5. "Why ranking anomaly detection algorithms isn't as reliable as you may think" (2026). *arXiv:2608.04613*.
+5. Klüttermann, S., Rutinowski, J., Polachowski, F., & Kirchheim, A. (2026). Why ranking anomaly detection algorithms isn't as reliable as you may think. *arXiv:2608.04613*.
    - 核实：arXiv API ✓（作者列表需在定稿前补齐）
-6. MSAD: A deep dive into model selection for time series anomaly detection (2025). *arXiv:2510.26643*.
+6. Sylligardos, E., Paparrizos, J., Palpanas, T., Senellart, P., & Boniol, P. (2025). MSAD: A deep dive into model selection for time series anomaly detection. *arXiv:2510.26643*.
    - 核实：arXiv API ✓
-7. mTSBench: Benchmarking multivariate time series anomaly detection and model selection at scale (2025). *arXiv:2506.21550*.
+7. Zhou, X., Brif, C., & Lourentzou, I. (2025). mTSBench: Benchmarking multivariate time series anomaly detection and model selection at scale. *arXiv:2506.21550*.
    - 核实：arXiv API ✓
-8. TAB: Unified benchmarking of time series anomaly detection methods (2025). *arXiv:2506.18046*.
+8. Qiu, X., Li, Z., Qiu, W., Hu, S., Zhou, L., Wu, X., Li, Z., Guo, C., Zhou, A., Sheng, Z., Hu, J., Jensen, C. S., & Yang, B. (2025). TAB: Unified benchmarking of time series anomaly detection methods. *arXiv:2506.18046*.
    - 核实：arXiv API ✓
 9. PATE: Proximity-aware time series anomaly evaluation (2024). *Proceedings of the ACM SIGKDD Conference*. https://doi.org/10.1145/3637528.3671971
    - 核实：Crossref DOI ✓
-10. A problem-oriented taxonomy of evaluation metrics for time series anomaly detection (2026). *Neurocomputing*. https://doi.org/10.1016/j.neucom.2026.134547
+10. Yang, K., Liu, J., Song, Y., Yang, S., & Zhou, Y. (2026). A problem-oriented taxonomy of evaluation metrics for time series anomaly detection. *Neurocomputing*. https://doi.org/10.1016/j.neucom.2026.134547
     - 核实：Crossref DOI ✓
-11. A robust framework for evaluation of unsupervised time-series anomaly detection (2024). *LNCS*. https://doi.org/10.1007/978-3-031-78395-1_4
+11. Gungor, O., Rios, A., Mudgal, P., Ahuja, N., & Rosing, T. (2024). A robust framework for evaluation of unsupervised time-series anomaly detection. *LNCS*. https://doi.org/10.1007/978-3-031-78395-1_4
     - 核实：Crossref DOI ✓
-12. Baumann, D., & Baumann, K. (2014). Reliable estimation of prediction errors for QSAR models under model uncertainty using double cross-validation. *Journal of Cheminformatics*. https://doi.org/10.1186/1758-2946-6-10
+12. **（2026-09-19 更正：作者原记错误）** Krstajic, D., Buturovic, L. J., Leahy, D. E., & Thomas, S. (2014). Cross-validation pitfalls when selecting and assessing regression and classification models. *Journal of Cheminformatics*. https://doi.org/10.1186/1758-2946-6-10
     - 核实：Crossref DOI ✓（标题以 Crossref 返回为准，定稿前复核）
 
 ## B. 故障诊断中的样本量与评价
 
-13. Minimum sample size determination of vibration signals in machine learning approach to fault diagnosis using power analysis (2010). *Expert Systems with Applications*. https://doi.org/10.1016/j.eswa.2010.06.068
+13. Indira, V., Vasanthakumari, R., & Sugumaran, V. (2010). Minimum sample size determination of vibration signals in machine learning approach to fault diagnosis using power analysis. *Expert Systems with Applications*. https://doi.org/10.1016/j.eswa.2010.06.068
     - 核实：Crossref DOI ✓
-14. Determination of minimum sample size for fault diagnosis of automobile hydraulic brake system using power analysis (2015). *Engineering Science and Technology, an International Journal*. https://doi.org/10.1016/j.jestch.2014.09.007
+14. Indira, V., Vasanthakumari, R., Jegadeeshwaran, R., & Sugumaran, V. (2015). Determination of minimum sample size for fault diagnosis of automobile hydraulic brake system using power analysis. *Engineering Science and Technology, an International Journal*. https://doi.org/10.1016/j.jestch.2014.09.007
     - 核实：Crossref DOI ✓；摘要已读（有监督分类、以准确率为目标）
 15. Vieira, J. P., Bauler, V. A., Rosa, R. K., & Silva, D. (2026). Towards a more realistic evaluation of machine learning models for bearing fault diagnosis. *Mechanical Systems and Signal Processing, 258*, 114640. https://doi.org/10.1016/j.ymssp.2026.114640
     - 核实：全文已读（Master `docs/literature/EVIDENCE_MATRIX.md`）
@@ -65,8 +65,11 @@
 **引用纪律**：数据集引用若无可核实 DOI，**只写仓库形式并注明来源**，
 不得为了"看起来完整"而添加未经核实的年份、卷期或 DOI。
 
-## D. 待办（写作前必须清零）
+## D. 待办状态（2026-09-19 更新）
 
-- [ ] 第 5、6、7、8、13、14 项的**作者列表**补齐（arXiv/S2 元数据）
-- [ ] 第 17、18、19 项的官方著录补齐并核实
-- [ ] 第 12 项标题以 Crossref 返回原文为准复核
+- [x] 第 5、6、7、8、10、11、13、14 项**作者列表**已补齐（arXiv / Crossref）
+- [x] **第 12 项作者更正**：原记 "Baumann & Baumann" **错误**，实为
+      **Krstajic, Buturovic, Leahy, & Thomas (2014)**，标题亦按 Crossref 原文更正
+- [x] 第 17 项（Paderborn）DOI 已核实
+- [ ] 第 18、19 项（IMS / MFPT）官方著录格式仍待在官方页面确认（**无 DOI，不得自造**）
+- [ ] **未覆盖**：中文文献与 PHM 系列会议论文集（已声明为已知缺口）
