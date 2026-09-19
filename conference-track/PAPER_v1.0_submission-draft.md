@@ -188,9 +188,79 @@ gap this paper addresses, and §3 states the boundary of each claim made against
 
 ## 5. Discussion
 
-*(见 `DRAFT_v0.4_discussion.md`，§5.1–5.5 全文照录；要点：口径效应源于单元间基线差异；
-饱和使检测器不可评估而非不稳定；健康/退化边界是报告参数；给出清单而非方法；
-四条可证伪声明。)*
+### 5.1 Why holding out a physical unit changes the number so much
+
+When test recordings come from bearings the detector was fitted on, the detector has
+effectively seen that bearing's baseline level. When the whole bearing is held out, the
+threshold must generalise across bearings, and the healthy recordings of the new bearing sit at
+a different operating point. In our data the between-bearing spread is substantial: per-bearing
+mean RMS ranges from 0.17 to 0.40 on the Paderborn healthy set. The reported false-alarm rate is
+therefore dominated by *which physical units* the split keeps apart, well before any question of
+model choice arises.
+
+This is consistent with prior work that identified leakage from segment- and condition-wise
+splitting and proposed bearing-wise splitting [15], and with recording-level separation in
+cross-domain benchmarking [16]. We claim no novelty for the observation that leakage inflates
+apparent performance. Our contribution is that the same effect, measured on the *false-alarm
+rate* under healthy-data-only training, moves the number by an order of magnitude, and that it
+can be quantified in a single controlled comparison.
+
+### 5.2 Why the unit effect disappears for some detectors
+
+The unit effect is clear for two detectors and absent for the third, and the reason is
+saturation rather than disagreement. With a single training bearing the Mahalanobis detector
+alarms on 67–100% of the healthy recordings of a different bearing, and in one cell on 100%
+exactly — the metric has no room left to vary, so its spread collapses to zero and the question
+"does the spread decrease?" becomes undefined.
+
+This matters beyond bookkeeping. A detector that is saturated cannot be evaluated by its
+false-alarm rate at all, because the rate has reached its ceiling; reporting such a number is not
+wrong so much as uninformative. We therefore state the unit effect as holding *for non-saturated
+detectors*, and treat saturation as a scope condition rather than a failure to report.
+
+An alternative reading of the Mahalanobis result is also plausible: with four features and about
+twenty windows, the empirical covariance is itself poorly estimated, so the saturation may
+reflect estimator instability rather than a property of the detector family. Both readings lead
+to the same practical conclusion for this configuration, and we do not claim to separate them.
+
+### 5.3 The healthy/degraded boundary is a free parameter
+
+For run-to-failure data there is no onset label: the split between healthy and degraded data is
+chosen by the analyst, and whatever is chosen becomes the ground truth against which false
+alarms are counted. The boundary alone moves the reported uncertainty by 2.4–5.2 percentage
+points, and the same rule can bind on opposite sides in different datasets — a floor of 20
+windows in one, a cap of 60 in the other.
+
+We emphasise what this is *not*. It is not a claim that any particular boundary is wrong, and it
+is not a new method for finding degradation onset; detecting the first prediction time is an
+established problem with a substantial literature, and our rule is drawn from that convention.
+Our claim is narrower and more immediately useful: the boundary is a reporting parameter, and its
+influence on the reported number should be measured and disclosed, exactly as one would disclose
+a threshold or a split.
+
+### 5.4 A checklist rather than a method
+
+The practical output of this study is the five-point checklist in §3.5. It requires no new model
+and no additional data collection beyond what a careful practitioner would already have; it
+changes only what is reported. Read against the observed effect sizes, the consequences are
+concrete: a study that reports a single within-bearing number may present a detector with a 40%
+false-alarm rate as having none; a study that reports a single training size may present a number
+that is an artefact of its split; and a study that does not disclose its healthy/degraded
+boundary may present a number that moves by several percentage points under a defensible
+alternative.
+
+### 5.5 What would change our conclusions
+
+1. If the scope effect fails to reproduce on a rig whose bearings are more uniform, the
+   order-of-magnitude framing would have to be restricted to rigs with strong between-bearing
+   variation.
+2. If the unit effect is shown to arise from the covariance estimator rather than from unit
+   diversity, the recommendation would shift from "more bearings" toward better-regularised
+   estimators.
+3. If the boundary sensitivity proves negligible for other rules and datasets, the boundary would
+   remain a reporting detail rather than a first-order parameter.
+4. If a prospective, self-collected dataset contradicts any of the above, that dataset takes
+   precedence — none of our evidence is from our own hardware.
 
 ---
 
