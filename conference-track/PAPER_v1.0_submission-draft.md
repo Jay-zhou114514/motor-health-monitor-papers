@@ -136,6 +136,37 @@ comparison, and we flag this as a remaining limitation. Thirteen classes of
 analysis error were found and corrected during the study; all of them lay in the way results
 were summarised or verified, none in the data or the model fitting.
 
+### 3.6 The evaluation protocol itself
+
+The checklist in §3.5 is not a recommendation drawn from first principles; it follows from four
+measurements on the small-sample regime that healthy-data-only monitoring actually occupies.
+
+**The selection criterion is often non-discriminative.** On IMS `1st_test` (12 healthy
+recordings, 84 windows of 0.25 s, 20 kHz), with a fixed test set of two recordings (14 windows)
+and 50 resamples of a 7-file fit and 3-file validation split, the minimum validation false-alarm
+rate was exactly zero in 86% of resamples and at least two candidate configurations tied at that
+minimum in 92%. Twenty-one validation windows cannot resolve differences below about 4.8
+percentage points, which is the same order as the 1% false-alarm level the detector is trying to
+control. A nested leave-one-file-out protocol on the same data had already given a modal
+configuration share of 33%.
+
+**The reported rate has a noise floor.** With the test set held fixed, so that test-set sampling
+contributes no variance, the reported rate took the values 0.00%, 7.14% and 14.29% across the 50
+resamples (mean 3.86%, SD 4.13 pp). Decomposing that variation at the modal configuration gave
+SD 5.20 pp when the training composition changed and 4.39 pp when only the random seed changed,
+so hyperparameter choice accounts for little of the spread.
+
+**Resampling is not a substitute for data.** On the Paderborn bearings, increasing the nominal
+training size from 20 to 96 recordings by resampling the same 20 left the SD at 18.0 pp, whereas
+using 96 distinct recordings reduced it to 0.00 pp. The effect is visible in the accuracy of the
+estimator as well: expressed as effective sample size, the resampling arm stayed between 0.18 and
+0.38 while the distinct-recording arm passed 430.
+
+**Search cost and stability trade off.** With hyperparameters selected inside the training data,
+Isolation Forest met a pre-set 5% false-alarm target in 3 of 3 IMS batches but needed roughly
+10^5 times the search cost of a 3σ RMS threshold and selected the same configuration in only 33%
+of folds; a one-class SVM met the target in 0 of 3.
+
 **Reporting checklist**
 
 1. Report the number of training windows behind the threshold, not the dataset size.
@@ -184,8 +215,17 @@ leakage-safe, recording-level cross-domain benchmark and reported that deep mode
 repeated seeds. **We claim no novelty for these observations**; we do not re-derive them.
 
 What the prior work does not provide is a quantified account, for the healthy-data-only setting,
-of how far a reported *false-alarm rate* can be trusted and what would improve it. That is the
-gap this paper addresses, and §3 states the boundary of each claim made against it.
+of how far a reported false-alarm rate can be trusted and what would improve it. Three
+increments over [15] and [16] are defensible and we restrict ourselves to them. First, the
+endpoint is the false-alarm rate under healthy-only training, not classification performance on
+labelled faults, so the quantity under study is the one that decides deployment. Second, the
+unit effect is measured inside a single operating condition with the record budget held fixed,
+which separates the number of independent units from operating-condition diversity; [15]
+identifies the number of training bearings as important for generalisation but does not isolate
+it that way. Third, saturation is reported as an evaluation failure mode in its own right, since
+a detector that alarms on 67 to 100% of healthy recordings has no measurable spread and cannot be
+assessed by this metric at all. The remaining content of §3.1 and §3.2 should be read as
+quantification of phenomena that [15] and [16] already established, not as their discovery.
 
 ---
 
