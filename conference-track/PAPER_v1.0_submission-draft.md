@@ -17,7 +17,7 @@ Condition monitoring is frequently deployed where only healthy-machine data are 
 detector is fitted on healthy recordings, the alarm threshold is placed at a quantile of the
 training score distribution, and the reported false-alarm rate is the number that decides
 whether the monitor is usable. We ask how far that number can be trusted and what determines
-it. Using four public bearing datasets under a pre-registered protocol, we find that the
+it. Using five public bearing sources under a pre-registered protocol, we find that the
 reported false-alarm rate is governed less by the detector than by three analyst choices.
 Holding out whole bearings, rather than only held-out recordings, raised the same detector's
 false-alarm rate from 0.00% to 40.63%. At a fixed sample size, increasing the number of
@@ -72,13 +72,13 @@ were re-run and compared hash-for-hash with their archived outputs (§3.5).
 
 ### 3.1 Scope: does the split keep physical units apart?
 
-Holding detector, threshold rule and data fixed, we compared two evaluation scopes on the
-Paderborn healthy bearings:
+Using the same detector, the same threshold rule and the same dataset, we compared two
+evaluation scopes on the Paderborn healthy bearings:
 
 | Scope | Training used | Test used | Reported false-alarm rate |
 | --- | --- | --- | ---: |
 | within-bearing | recordings 1–16 of each bearing | recordings 17–20 of *the same* bearings | **0.00%** |
-| bearing-level holdout | all recordings of five bearings | all recordings of *the held-out* bearing | **40.63%** (folds 0.4–97.1%) |
+| bearing-level holdout | all recordings of five bearings | all recordings of *the held-out* bearing | **40.63%** (folds 0.00–97.10%, n = 96 distinct training recordings) |
 
 *Boundary*: one rig, six physical units. The direction is unambiguous; the magnitude should not
 be transferred without repeating the comparison.
@@ -90,9 +90,9 @@ operating condition** as the held-out bearing:
 
 | Detector | SD decreases with #bearings | SD(k_max) < SD(k=1) | k=1 mean FP |
 | --- | ---: | ---: | ---: |
-| 3σ RMS threshold | **6/6** | **6/6** | 43–50% |
-| Isolation Forest (200, 0.5) | **6/6** | **6/6** | 54–58% |
-| Mahalanobis distance | 2/6 | 2/6 | **67–100%** |
+| 3σ RMS threshold | **6/6** | **6/6** | 23.7–49.5% (SD 33.0–48.2 pp) |
+| Isolation Forest (200, 0.5) | **6/6** | **6/6** | 16.9–57.6% (PRONOSTIA 16.9–21.5%, XJTU-SY 54.5–57.6%; SD 23.9–44.4 pp) |
+| Mahalanobis distance | 2/6 | 2/6 | **66.8–100%** (one cell exactly 100%; SD 0.0–35.4 pp) |
 
 For the two non-saturated detectors, going from one training bearing to three or four halves the
 standard deviation of the reported rate **at a fixed number of recordings**.
@@ -127,9 +127,12 @@ IMS batches (MFPT 1/3, IMS 0/24). A power analysis gave the original comparison 
 
 ### 3.5 Reproducibility of these results
 
-The four experiments carrying the claims in §3.1–3.3 were re-run and compared with their
-archived outputs: V2-04/05/06 reproduced byte-for-byte, and V1-10 reproduced exactly on all
-scientific columns (the only difference was its wall-clock timing column). Thirteen classes of
+Verification depth differs by experiment and we state it per experiment. EXP-V2-04, EXP-V2-05 and
+EXP-V2-06 were re-run and reproduced byte-for-byte. EXP-V1-10 reproduced exactly on all scientific
+columns (only its wall-clock timing column differed). EXP-V1-05 to V1-09 passed invariant and
+independent-recomputation checks with a stored hash baseline. The experiment carrying §3.1
+(EXP-V2-03) has invariant and recomputation checks but has **not** been through a re-run
+comparison, and we flag this as a remaining limitation. Thirteen classes of
 analysis error were found and corrected during the study; all of them lay in the way results
 were summarised or verified, none in the data or the model fitting.
 
@@ -279,7 +282,9 @@ alternative.
    operating-condition diversity.
 6. Verification is not uniform: four experiments were re-run and compared hash-for-hash; older
    experiments have invariant and recomputation checks plus a stored hash baseline only.
-7. Literature scope: the search covered Scopus and arXiv; Chinese-language venues and PHM
+7. The experiment carrying the scope effect (§3.1) has not been through a re-run comparison;
+   its evidence rests on invariant and recomputation checks only.
+8. Literature scope: the search covered Scopus and arXiv; Chinese-language venues and PHM
    conference proceedings are not comprehensively covered. References [11] and [13] are cited
    at title level only because their abstracts were not retrievable.
 
@@ -310,8 +315,9 @@ prospective self-collected study is the natural next test.
 **(a)** Evaluation scope. With detector, threshold and data fixed, holding out whole bearings
 raises the reported false-alarm rate from 0.00% (within-bearing) to 40.63% (bearing-level
 holdout; folds 0.4–97.1%). **(b)** Independent units. At a fixed budget of 20 recordings, drawing
-training bearings from a single bearing yields SD 23–38 pp and mean false-positive rates of
-43–58%, whereas four bearings yield SD 8–14 pp; the effect holds for 3σ RMS and Isolation Forest
+training bearings from a single bearing yields mean false-positive rates of 16.9–57.6% for
+Isolation Forest and 23.7–49.5% for 3σ RMS (SD 23.9–44.4 pp and 33.0–48.2 pp respectively),
+whereas four bearings reduce the spread; the effect holds for 3σ RMS and Isolation Forest
 (6 of 6 operating conditions each) but not for the Mahalanobis detector, which saturates at 67–
 100% false alarms and is therefore not testable this way. **(c)** Definition. Run-to-failure data
 carry no onset label, so the healthy/degraded boundary is an analyst choice; across five
