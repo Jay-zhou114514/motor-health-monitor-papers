@@ -119,12 +119,14 @@ operating condition** as the held-out bearing:
 
 For the two non-saturated detectors, going from one training bearing to k_max reduces the
 standard deviation of the reported rate **at a fixed number of recordings**. The measured
-per-cell ratios SD(k_max)/SD(k=1) are 0.76, 0.75, 0.68, 0.68, 0.91 and 0.55 for 3σ RMS and 0.32,
+per-cell ratios SD(k_max)/SD(k=1) are 0.76, 0.75, 0.67, 0.68, 0.91 and 0.55 for 3σ RMS and 0.32,
 0.57, 0.34, 0.58, 0.86 and 0.52 for Isolation Forest, that is a reduction of roughly 10 to 45
 percent for the first detector and 14 to 68 percent for the second, not a uniform halving.
 
-*Boundary*: k_max is the number of training bearings available in that cell, which is 7, 7 and 3
-for the three PRONOSTIA conditions and 4, 4 and 5 for the three XJTU-SY conditions. The criterion
+*Boundary*: the bearings left in a condition after the healthy-phase rule number 7, 7 and 3 for the
+three PRONOSTIA conditions and 4, 4 and 5 for the three XJTU-SY conditions. One is held out for
+testing and the record budget is fixed at 20 (five recordings per bearing), so the sweep reaches
+k_max = 4, 4, 2 and 3, 3, 4 respectively, and the ratios above are taken at those points. The criterion
 for "decreases" is the rank correlation between k and the SD, not strict monotonicity; one cell
 is non-monotone (XJTU-SY 40Hz10kN rises from 20.02 pp at k=3 to 20.69 pp at k=4). The Mahalanobis
 exclusion is not a pre-defined saturation rule but a reclassification of a preregistered
@@ -173,7 +175,7 @@ derivation and file counting; none lies in the model fitting itself.
 
 ### 3.6 The evaluation protocol itself
 
-The checklist in §3.6 is not a recommendation drawn from first principles; it follows from four
+The checklist below is not a recommendation drawn from first principles; it follows from four
 measurements on the small-sample regime that healthy-data-only monitoring actually occupies.
 
 **The selection criterion is often non-discriminative.** On IMS `1st_test` (12 healthy
@@ -290,8 +292,10 @@ This is consistent with prior work that identified leakage from segment- and con
 splitting and proposed bearing-wise splitting [15], and with recording-level separation in
 cross-domain benchmarking [16]. We claim no novelty for the observation that leakage inflates
 apparent performance. Our contribution is that the same effect, measured on the *false-alarm
-rate* under healthy-data-only training, moves the number by an order of magnitude, and that it
-can be quantified in a single controlled comparison.
+rate* under healthy-data-only training, moves the number from no alarms to about 40%, and that it
+can be quantified in a single controlled comparison. Because the within-bearing figure is a single
+deterministic evaluation with a resolution of 4.17 percentage points, the defensible ratio is about
+3.5-fold rather than an order of magnitude (§3.1).
 
 ### 5.2 Why the unit effect disappears for some detectors
 
@@ -315,9 +319,11 @@ to the same practical conclusion for this configuration, and we do not claim to 
 
 For run-to-failure data there is no onset label: the split between healthy and degraded data is
 chosen by the analyst, and whatever is chosen becomes the ground truth against which false
-alarms are counted. The boundary alone moves the reported uncertainty by 2.4–5.2 percentage
-points, and the same rule can bind on opposite sides in different datasets — a floor of 20
-windows in one, a cap of 60 in the other.
+alarms are counted. On PRONOSTIA, where all five rules admit the same 17 bearings, the boundary
+alone moves the reported uncertainty by 2.40 percentage points; the XJTU-SY sweep gives 5.19
+percentage points, but there the rule also changes which bearings qualify, so that figure is not a
+clean boundary effect. The same rule can bind on opposite sides in different datasets — a floor of
+20 windows in one, a cap of 60 in the other.
 
 We emphasise what this is *not*. It is not a claim that any particular boundary is wrong, and it
 is not a new method for finding degradation onset; detecting the first prediction time is an
@@ -381,12 +387,15 @@ The practical reliability of a false-alarm rate in healthy-data-only bearing ano
 set less by the detector than by three choices the analyst makes: whether evaluation keeps
 physical units apart, how many independent units enter training, and where healthy data end.
 
-The decisive evidence is comparative. Holding out whole bearings moved the reported rate by an
-order of magnitude (0.00% to 40.63%) on the same detector and the same data. At a fixed sample
-size, adding distinct training bearings halved the spread for two detectors, while the third
+The decisive evidence is comparative. Holding out whole bearings moved the reported rate from no
+alarms to 40.63% on the same detector and the same data; because the within-bearing figure is a
+single deterministic evaluation with 4.17-percentage-point resolution, the defensible ratio is
+about 3.5-fold rather than an order of magnitude. At a fixed sample size, adding distinct training
+bearings reduced the spread for two detectors by 10–45% and 14–68% respectively, while the third
 saturated at 67–100% false alarms and became uninformative rather than unstable. Sweeping the
-healthy/degraded boundary moved the reported uncertainty by 2.4–5.2 percentage points without
-any change to the detector.
+healthy/degraded boundary moved the reported uncertainty by 2.40 percentage points on PRONOSTIA,
+where the admissible bearing set is unchanged; the larger XJTU-SY figure mixes the boundary effect
+with an inclusion effect.
 
 We do not claim a new detector, a new method for locating degradation onset, or generality beyond
 the rigs studied. All evidence is from public datasets; none comes from our own hardware, and a
