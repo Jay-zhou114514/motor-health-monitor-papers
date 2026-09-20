@@ -114,7 +114,7 @@ Holding the sample size fixed at 20 recordings and restricting training bearings
 | Isolation Forest (200, 0.5) | **6/6** | **6/6** | 16.9–57.6% (PRONOSTIA 16.9–21.5%, XJTU-SY 54.5–57.6%; SD 23.9–44.4 pp) |
 | Mahalanobis distance | 2/6 | 2/6 | **66.8–100%** (one cell exactly 100%; SD 0.0–35.4 pp) |
 
-SD in this table is the pooled standard deviation over the fold × repeat evaluations stored in the summary CSVs, not the between-fold SD of Section 3.1. The verdicts depend on that choice: recomputing the same cells as the SD of per-fold mean rates gives 2 of 6 for Isolation Forest, 4 of 6 for 3σ RMS and 0 of 6 for Mahalanobis (`REVIEW_round4_sd_definition_check2.txt`), so under the between-fold definition both non-saturated detectors fall short of the 80% share their preregistration required, and the saturated detector is excluded either way. We report both readings, and the claim we make here is the weaker one: with this little healthy data, the stability of detector performance depends on how cross-fold variation is defined and estimated, and evaluated by between-fold variation the preregistered 80% stability criterion is not met. The pooled reading is reported as a sensitivity, not as the result.
+SD in this table is the pooled standard deviation over the fold × repeat evaluations stored in the summary CSVs, not the between-fold SD of Section 3.1. The verdicts depend on that choice: recomputing the same cells as the SD of per-fold mean rates gives 2 of 6 for Isolation Forest, 4 of 6 for 3σ RMS and 0 of 6 for Mahalanobis (`REVIEW_round4_sd_definition_check2.txt`), so under the between-fold definition both non-saturated detectors fall short of the 80% share their preregistration required, and the saturated detector is excluded either way. We report both readings, and the claim we make here is the weaker one: with this little healthy data, the stability of detector performance depends on how cross-fold variation is defined and estimated, and evaluated by between-fold variation the preregistered 80% stability criterion is not met. The pooled reading is reported as a sensitivity, not as the result. One conclusion survives both definitions: training on a single bearing is unreliable. At k = 1 the mean false-alarm rate on a different bearing is 16.9–57.6% for Isolation Forest and 23.7–49.5% for the 3σ RMS threshold, and those cells carry the largest per-cell spread of the sweep.
 
 For the two non-saturated detectors, and under the pooled definition, going from one training bearing to k_max reduces the standard deviation of the reported rate **at a fixed number of recordings**. The measured
 per-cell ratios SD(k_max)/SD(k=1) are 0.76, 0.75, 0.67, 0.68, 0.91 and 0.55 for 3σ RMS and 0.32,
@@ -288,9 +288,7 @@ splitting and proposed bearing-wise splitting [15], and with recording-level sep
 cross-domain benchmarking [16]. We claim no novelty for the observation that leakage inflates
 apparent performance. Our contribution is that the same effect, measured on the *false-alarm
 rate* under healthy-data-only training, moves the number from no alarms to about 40%, and that it
-can be quantified in a single controlled comparison. Because the within-bearing figure is a single
-deterministic evaluation with a resolution of 4.17 percentage points, the defensible ratio is about
-3.5-fold rather than an order of magnitude (§3.1).
+can be quantified in a single controlled comparison. Because the within-bearing figure is a single deterministic evaluation with a resolution of 4.17 percentage points, the increase is at least about 3.5-fold; zero alarms in 24 recordings does not bound it from above (§3.1).
 
 ### 5.2 Why the unit effect disappears for some detectors
 
@@ -356,8 +354,7 @@ alternative.
 
 1. All evidence is from public datasets (IMS, MFPT, Paderborn, XJTU-SY, PRONOSTIA); no
    self-collected data.
-2. Few independent units: 6 (Paderborn), 15 (XJTU-SY), 17 (PRONOSTIA); the unit effect is
-   estimated from 3–4 bearings per cell within a condition.
+2. The binding constraint is the number of publicly available independent healthy units, not the volume of healthy data: Paderborn contributes 6 healthy bearings in total and 3–7 per operating condition after the healthy-phase rule, XJTU-SY 15 and PRONOSTIA 17, so the unit effect rests on 3–4 bearings per cell. Adding recordings to the same units does not help (§3.6); adding units would require pooling datasets with different acquisition chains or new hardware.
 3. One detector family: all detectors use a quantile of the training score distribution; the
    Mahalanobis result is reported as not testable.
 4. The healthy-phase rule was chosen by us and is defended by a sensitivity sweep, not by an
@@ -399,9 +396,7 @@ keeps physical units apart, how many independent units enter training, and where
 end.
 
 The decisive evidence is comparative. Holding out whole bearings moved the reported rate from no
-alarms to 40.63% on the same detector and the same data; because the within-bearing figure is a
-single deterministic evaluation with 4.17-percentage-point resolution, the defensible ratio is
-about 3.5-fold rather than an order of magnitude. At a fixed sample size, whether the detectors look stable depends on how cross-fold variation is defined and estimated. Under the pooled SD the spread of the reported rate fell in every condition for two detectors, by 10–45% and 14–68%; under between-fold variation the preregistered 80% criterion is met in neither, at 2 of 6 and 4 of 6, and the third detector saturated at 67–100% false alarms. We therefore report detector stability in this setting as definition-dependent rather than as an established improvement. Sweeping the
+alarms to 40.63% on the same detector and the same data; because the within-bearing figure is a single deterministic evaluation with 4.17-percentage-point resolution, the increase is at least about 3.5-fold. At a fixed sample size, whether the detectors look stable depends on how cross-fold variation is defined and estimated. Under the pooled SD the spread of the reported rate fell in every condition for two detectors, by 10–45% and 14–68%; under between-fold variation the preregistered 80% criterion is met in neither, at 2 of 6 and 4 of 6, and the third detector saturated at 67–100% false alarms. We therefore report detector stability in this setting as definition-dependent rather than as an established improvement. Sweeping the
 healthy/degraded boundary moved the reported uncertainty by 2.40 percentage points on PRONOSTIA,
 where the admissible bearing set is unchanged; the larger XJTU-SY figure mixes the boundary effect
 with an inclusion effect.
