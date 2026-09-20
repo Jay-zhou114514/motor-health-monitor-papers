@@ -1,0 +1,10 @@
+columns: ['cfg', 'val_fp', 'val_pct_mean', 'test_fp', 'test_pct_mean', 'test_pct_max', 'test_pct_q90', 'n_tied_at_min', 'seconds', 'design', 'method', 'replicate', 'fit_files', 'val_files', 'test_files', 'test_windows']
+designs: ['A', 'B'] methods: ['forest', 'svm']
+rows: 350
+  design=A method=forest   replicates=200 zero-minimum share=0.86 tie share=0.9
+  design=A method=svm      replicates=50 zero-minimum share=0.0 tie share=0.8
+  design=B method=forest   replicates=50 zero-minimum share=0.78 tie share=0.86
+
+paper ��3.6: 'the minimum validation false-alarm rate was exactly zero in 86% of
+resamples and at least two candidate configurations tied at that minimum in 92%'
+EXP-V1-10-summary.csv carries tie_share=0.92 and modal_share=0.88 for design A (forest).

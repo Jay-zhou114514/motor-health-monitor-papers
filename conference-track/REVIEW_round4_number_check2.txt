@@ -1,0 +1,269 @@
+
+==============================================================================
+B. ��3.2 unit effect, all three detectors (EXP-V2-05 / EXP-V2-06)
+==============================================================================
+  paper: 3sigma ratios 0.76,0.75,0.67,0.68,0.91,0.55 ; iForest ratios 0.32,0.57,0.34,0.58,0.86,0.52
+  paper: Mahalanobis k=1 mean FP 66.8-100%, one cell exactly 100%, SD 0.0-35.4pp
+  --- 3sigma RMS  (n=350, folds=7)
+      PRONOSTIA/C1           k=[1, 2, 3, 4] k1: mean 23.69% SD 32.97pp | kmax SD 25.13pp ratio 0.76 | monotone=True
+      PRONOSTIA/C2           k=[1, 2, 3, 4] k1: mean 40.23% SD 44.51pp | kmax SD 33.26pp ratio 0.75 | monotone=True
+      PRONOSTIA/C3           k=[1, 2] k1: mean 43.07% SD 43.13pp | kmax SD 29.1pp ratio 0.67 | monotone=True
+      XJTU-SY/35Hz12kN       k=[1, 2, 3] k1: mean 49.5% SD 48.21pp | kmax SD 32.83pp ratio 0.68 | monotone=True
+      XJTU-SY/37.5Hz11kN     k=[1, 2, 3] k1: mean 47.51% SD 47.95pp | kmax SD 43.41pp ratio 0.91 | monotone=True
+      XJTU-SY/40Hz10kN       k=[1, 2, 3, 4] k1: mean 44.46% SD 47.33pp | kmax SD 26.08pp ratio 0.55 | monotone=True
+      ratios = [0.76, 0.75, 0.67, 0.68, 0.91, 0.55]
+      k_max = [4, 4, 2, 3, 3, 4]
+      count(kmax SD < k=1 SD) = 6/6   strictly monotone = 6/6
+      k=1 mean FP range 23.69-49.5%   k=1 SD range 32.97-48.21pp
+  --- Mahalanobis  (n=350, folds=7)
+      PRONOSTIA/C1           k=[1, 2, 3, 4] k1: mean 66.83% SD 35.42pp | kmax SD 25.19pp ratio 0.71 | monotone=True
+      PRONOSTIA/C2           k=[1, 2, 3, 4] k1: mean 76.3% SD 32.73pp | kmax SD 36.42pp ratio 1.11 | monotone=False
+      PRONOSTIA/C3           k=[1, 2] k1: mean 89.84% SD 22.52pp | kmax SD 38.33pp ratio 1.7 | monotone=False
+      XJTU-SY/35Hz12kN       k=[1, 2, 3] k1: mean 100.0% SD 0.0pp | kmax SD 37.65pp ratio None | monotone=False
+      XJTU-SY/37.5Hz11kN     k=[1, 2, 3] k1: mean 86.03% SD 29.4pp | kmax SD 47.1pp ratio 1.6 | monotone=False
+      XJTU-SY/40Hz10kN       k=[1, 2, 3, 4] k1: mean 84.68% SD 33.2pp | kmax SD 28.59pp ratio 0.86 | monotone=False
+      ratios = [0.71, 1.11, 1.7, None, 1.6, 0.86]
+      k_max = [4, 4, 2, 3, 3, 4]
+      count(kmax SD < k=1 SD) = 2/6   strictly monotone = 1/6
+      k=1 mean FP range 66.83-100.0%   k=1 SD range 0.0-35.42pp
+  --- IsolationForest  (n=350, folds=7)
+      PRONOSTIA/C1           k=[1, 2, 3, 4] k1: mean 16.9% SD 23.89pp | kmax SD 7.64pp ratio 0.32 | monotone=True
+      PRONOSTIA/C2           k=[1, 2, 3, 4] k1: mean 21.45% SD 24.61pp | kmax SD 14.01pp ratio 0.57 | monotone=True
+      PRONOSTIA/C3           k=[1, 2] k1: mean 18.61% SD 24.29pp | kmax SD 8.29pp ratio 0.34 | monotone=True
+      XJTU-SY/35Hz12kN       k=[1, 2, 3] k1: mean 57.63% SD 44.43pp | kmax SD 25.7pp ratio 0.58 | monotone=True
+      XJTU-SY/37.5Hz11kN     k=[1, 2, 3] k1: mean 54.68% SD 36.28pp | kmax SD 31.16pp ratio 0.86 | monotone=True
+      XJTU-SY/40Hz10kN       k=[1, 2, 3, 4] k1: mean 54.49% SD 39.61pp | kmax SD 20.69pp ratio 0.52 | monotone=False
+      ratios = [0.32, 0.57, 0.34, 0.58, 0.86, 0.52]
+      k_max = [4, 4, 2, 3, 3, 4]
+      count(kmax SD < k=1 SD) = 6/6   strictly monotone = 5/6
+      k=1 mean FP range 16.9-57.63%   k=1 SD range 23.89-44.43pp
+
+==============================================================================
+D. ��3.4 reproduction count (EXP-V1-07-folds.csv)
+==============================================================================
+  schemes: ['cond_target', 'empirical', 'ledoit_wolf']
+  feature groups: ['RMS + centroid (problem)', 'RMS + kurtosis (control)', 'crest + centroid (counterexample)']
+  TOTAL folds=0  inflation>1=0
+
+==============================================================================
+E. ��3.6 selection instability (EXP-V1-10-summary.csv)
+==============================================================================
+  arm=forest / design A (R=50, frozen)     modal_share=0.88   tie_share=0.92   test_fp mean=3.86% sd=4.13pp min=0.0% max=14.29% n_distinct_cfg=4 val_fp_mean=1.14%
+  arm=forest / design A (R=200)            modal_share=0.83   tie_share=0.895  test_fp mean=4.21% sd=4.19pp min=0.0% max=21.43% n_distinct_cfg=6 val_fp_mean=1.02%
+  arm=forest / design B (R=50, test resa   modal_share=0.66   tie_share=0.86   test_fp mean=2.86% sd=4.56pp min=0.0% max=14.29% n_distinct_cfg=5 val_fp_mean=1.14%
+  arm=OC-SVM / design A (R=50, secondary   modal_share=0.9    tie_share=0.8    test_fp mean=40.29% sd=7.6pp min=28.57% max=57.14% n_distinct_cfg=3 val_fp_mean=18.76%
+  paper: 92% tie at minimum; 86% had minimum validation FP exactly zero; test FP values 0.00/7.14/14.29%, mean 3.86%, SD 4.13pp
+
+==============================================================================
+E2. ��3.6 variance decomposition (EXP-V1-10-variance-decomposition.csv)
+==============================================================================
+  columns: ['component', 'repeat', 'seed', 'threshold', 'test_fp', 'test_pct_mean']
+    {'component': 'A_fit_composition', 'repeat': '0', 'seed': '0', 'threshold': '0.5888682675323038', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '1', 'seed': '0', 'threshold': '0.5973761154159546', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '2', 'seed': '0', 'threshold': '0.6071662613963396', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '3', 'seed': '0', 'threshold': '0.5927670777897281', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '4', 'seed': '0', 'threshold': '0.5893626113010594', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '5', 'seed': '0', 'threshold': '0.6056137213500619', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '6', 'seed': '0', 'threshold': '0.604602941213933', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '7', 'seed': '0', 'threshold': '0.6064051991852583', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '8', 'seed': '0', 'threshold': '0.5785514619055767', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '9', 'seed': '0', 'threshold': '0.598567163492079', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '10', 'seed': '0', 'threshold': '0.6010060370530945', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '11', 'seed': '0', 'threshold': '0.59556376438892', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '12', 'seed': '0', 'threshold': '0.5927664480174637', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '13', 'seed': '0', 'threshold': '0.5877177822744043', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '14', 'seed': '0', 'threshold': '0.5763238143925379', 'test_fp': '0.21428571428571427', 'test_pct_mean': '0.21428571428571427'}
+    {'component': 'A_fit_composition', 'repeat': '15', 'seed': '0', 'threshold': '0.5951345101564863', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '16', 'seed': '0', 'threshold': '0.5847760396488547', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '17', 'seed': '0', 'threshold': '0.6069208091719838', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '18', 'seed': '0', 'threshold': '0.5983409639361115', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '19', 'seed': '0', 'threshold': '0.6057848706065346', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '20', 'seed': '0', 'threshold': '0.595164214518083', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '21', 'seed': '0', 'threshold': '0.6186272868449436', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '22', 'seed': '0', 'threshold': '0.578705466550878', 'test_fp': '0.21428571428571427', 'test_pct_mean': '0.21428571428571427'}
+    {'component': 'A_fit_composition', 'repeat': '23', 'seed': '0', 'threshold': '0.5900756194857044', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '24', 'seed': '0', 'threshold': '0.6048023969163093', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '25', 'seed': '0', 'threshold': '0.5771083384099268', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '26', 'seed': '0', 'threshold': '0.5947757374304585', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '27', 'seed': '0', 'threshold': '0.6026279059071522', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '28', 'seed': '0', 'threshold': '0.5809711750221468', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '29', 'seed': '0', 'threshold': '0.5995329470139222', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '30', 'seed': '0', 'threshold': '0.5880072265758443', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '31', 'seed': '0', 'threshold': '0.6021919153850863', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '32', 'seed': '0', 'threshold': '0.585263905182327', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '33', 'seed': '0', 'threshold': '0.5913286764627559', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '34', 'seed': '0', 'threshold': '0.578868916295987', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '35', 'seed': '0', 'threshold': '0.5770550513371097', 'test_fp': '0.14285714285714285', 'test_pct_mean': '0.14285714285714285'}
+    {'component': 'A_fit_composition', 'repeat': '36', 'seed': '0', 'threshold': '0.597229466691123', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '37', 'seed': '0', 'threshold': '0.5879262072237242', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '38', 'seed': '0', 'threshold': '0.5866889739585985', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '39', 'seed': '0', 'threshold': '0.5939592427258358', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '40', 'seed': '0', 'threshold': '0.6025184518236519', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '41', 'seed': '0', 'threshold': '0.5994282475767905', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '42', 'seed': '0', 'threshold': '0.5926911378758144', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '43', 'seed': '0', 'threshold': '0.582958148818101', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '44', 'seed': '0', 'threshold': '0.587923370521262', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '45', 'seed': '0', 'threshold': '0.5942091921338819', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '46', 'seed': '0', 'threshold': '0.6078369514460565', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'A_fit_composition', 'repeat': '47', 'seed': '0', 'threshold': '0.596845363771633', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '48', 'seed': '0', 'threshold': '0.6007340828480604', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'A_fit_composition', 'repeat': '49', 'seed': '0', 'threshold': '0.6074954692469712', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '0', 'seed': '0', 'threshold': '0.5888682675323038', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '1', 'seed': '1', 'threshold': '0.5901484923181498', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '2', 'seed': '2', 'threshold': '0.5925430722626088', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '3', 'seed': '3', 'threshold': '0.5836466050774226', 'test_fp': '0.14285714285714285', 'test_pct_mean': '0.14285714285714285'}
+    {'component': 'B_random_seed', 'repeat': '4', 'seed': '4', 'threshold': '0.593324239386214', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '5', 'seed': '5', 'threshold': '0.5867060511159551', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '6', 'seed': '6', 'threshold': '0.5796110174825787', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '7', 'seed': '7', 'threshold': '0.5973834836594656', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '8', 'seed': '8', 'threshold': '0.5808858656397773', 'test_fp': '0.14285714285714285', 'test_pct_mean': '0.14285714285714285'}
+    {'component': 'B_random_seed', 'repeat': '9', 'seed': '9', 'threshold': '0.5849391593524821', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '10', 'seed': '10', 'threshold': '0.5991668075933938', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '11', 'seed': '11', 'threshold': '0.5910790352361773', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '12', 'seed': '12', 'threshold': '0.5870463275132638', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '13', 'seed': '13', 'threshold': '0.5951311952254829', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '14', 'seed': '14', 'threshold': '0.5841729498296006', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '15', 'seed': '15', 'threshold': '0.5927687789184656', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '16', 'seed': '16', 'threshold': '0.5931630876280715', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '17', 'seed': '17', 'threshold': '0.5838252806774495', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '18', 'seed': '18', 'threshold': '0.5850857813818103', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '19', 'seed': '19', 'threshold': '0.5828995982489537', 'test_fp': '0.14285714285714285', 'test_pct_mean': '0.14285714285714285'}
+    {'component': 'B_random_seed', 'repeat': '20', 'seed': '20', 'threshold': '0.6058397061593243', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '21', 'seed': '21', 'threshold': '0.5975932138619442', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '22', 'seed': '22', 'threshold': '0.5892060504458533', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '23', 'seed': '23', 'threshold': '0.5850342531388819', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '24', 'seed': '24', 'threshold': '0.5827192798021029', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '25', 'seed': '25', 'threshold': '0.5928526345762917', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '26', 'seed': '26', 'threshold': '0.5811004094024043', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '27', 'seed': '27', 'threshold': '0.5833642219971379', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '28', 'seed': '28', 'threshold': '0.5962195065828217', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '29', 'seed': '29', 'threshold': '0.596753262304043', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '30', 'seed': '30', 'threshold': '0.5845191375754419', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '31', 'seed': '31', 'threshold': '0.5874922151228257', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '32', 'seed': '32', 'threshold': '0.5914447154559196', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '33', 'seed': '33', 'threshold': '0.5967519564696945', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '34', 'seed': '34', 'threshold': '0.5903006670412518', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '35', 'seed': '35', 'threshold': '0.5821501867110724', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '36', 'seed': '36', 'threshold': '0.5920131909283874', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '37', 'seed': '37', 'threshold': '0.6002645101856946', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '38', 'seed': '38', 'threshold': '0.5920880165909007', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '39', 'seed': '39', 'threshold': '0.589073849324218', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '40', 'seed': '40', 'threshold': '0.5974703456719539', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '41', 'seed': '41', 'threshold': '0.592245419873865', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '42', 'seed': '42', 'threshold': '0.5876683398318593', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '43', 'seed': '43', 'threshold': '0.6047075613640503', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'B_random_seed', 'repeat': '44', 'seed': '44', 'threshold': '0.5879525421928283', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '45', 'seed': '45', 'threshold': '0.5866343771941804', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '46', 'seed': '46', 'threshold': '0.5901565088675654', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '47', 'seed': '47', 'threshold': '0.5905529715447317', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '48', 'seed': '48', 'threshold': '0.5874475543671828', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'B_random_seed', 'repeat': '49', 'seed': '49', 'threshold': '0.5904472532557982', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '0', 'seed': '0', 'threshold': '0.5888682675323038', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '1', 'seed': '1', 'threshold': '0.6039062672493289', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '2', 'seed': '2', 'threshold': '0.6002116410544523', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '3', 'seed': '3', 'threshold': '0.5935956204097885', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '4', 'seed': '4', 'threshold': '0.6153956571747862', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '5', 'seed': '5', 'threshold': '0.6039637127848804', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '6', 'seed': '6', 'threshold': '0.5937268487641826', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '7', 'seed': '7', 'threshold': '0.6119245544155191', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '8', 'seed': '8', 'threshold': '0.5788113888592074', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '9', 'seed': '9', 'threshold': '0.5913760065405357', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '10', 'seed': '10', 'threshold': '0.6049833276084317', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '11', 'seed': '11', 'threshold': '0.6059131112319942', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '12', 'seed': '12', 'threshold': '0.5923255782169388', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '13', 'seed': '13', 'threshold': '0.5976075517049754', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '14', 'seed': '14', 'threshold': '0.5763180450917608', 'test_fp': '0.21428571428571427', 'test_pct_mean': '0.21428571428571427'}
+    {'component': 'C_both', 'repeat': '15', 'seed': '15', 'threshold': '0.5948521577137154', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '16', 'seed': '16', 'threshold': '0.5872250869393029', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '17', 'seed': '17', 'threshold': '0.5983692573421261', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '18', 'seed': '18', 'threshold': '0.5907534533965408', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '19', 'seed': '19', 'threshold': '0.5920692131649602', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '20', 'seed': '20', 'threshold': '0.5975297704362273', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '21', 'seed': '21', 'threshold': '0.620490024705983', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '22', 'seed': '22', 'threshold': '0.5888589062460493', 'test_fp': '0.21428571428571427', 'test_pct_mean': '0.21428571428571427'}
+    {'component': 'C_both', 'repeat': '23', 'seed': '23', 'threshold': '0.5777770071233698', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '24', 'seed': '24', 'threshold': '0.5998285955792592', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '25', 'seed': '25', 'threshold': '0.592457214013236', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '26', 'seed': '26', 'threshold': '0.5929183360459804', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '27', 'seed': '27', 'threshold': '0.6038400176465459', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '28', 'seed': '28', 'threshold': '0.5904651060633805', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '29', 'seed': '29', 'threshold': '0.6026222302835392', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '30', 'seed': '30', 'threshold': '0.5836652807333281', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '31', 'seed': '31', 'threshold': '0.6051591942816482', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '32', 'seed': '32', 'threshold': '0.5876078619152659', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '33', 'seed': '33', 'threshold': '0.5934780685015809', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '34', 'seed': '34', 'threshold': '0.5793503186937154', 'test_fp': '0.14285714285714285', 'test_pct_mean': '0.14285714285714285'}
+    {'component': 'C_both', 'repeat': '35', 'seed': '35', 'threshold': '0.5832275734581698', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '36', 'seed': '36', 'threshold': '0.6002990441462561', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '37', 'seed': '37', 'threshold': '0.6006741063527958', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '38', 'seed': '38', 'threshold': '0.5932686976064372', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '39', 'seed': '39', 'threshold': '0.59227713782243', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '40', 'seed': '40', 'threshold': '0.5985543999931303', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '41', 'seed': '41', 'threshold': '0.5856374741125633', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '42', 'seed': '42', 'threshold': '0.6063104407884541', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '43', 'seed': '43', 'threshold': '0.5916652345207357', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '44', 'seed': '44', 'threshold': '0.5878837964093698', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '45', 'seed': '45', 'threshold': '0.609385285861021', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '46', 'seed': '46', 'threshold': '0.6153933929988177', 'test_fp': '0.0', 'test_pct_mean': '0.0'}
+    {'component': 'C_both', 'repeat': '47', 'seed': '47', 'threshold': '0.5956699751582706', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '48', 'seed': '48', 'threshold': '0.5993666752736843', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+    {'component': 'C_both', 'repeat': '49', 'seed': '49', 'threshold': '0.5957457813938004', 'test_fp': '0.07142857142857142', 'test_pct_mean': '0.07142857142857142'}
+
+==============================================================================
+E3. ��3.6 resampling vs new recordings (EXP-V2-01-summary.csv)
+==============================================================================
+  columns: ['arm', 'n_train', 'sd_fp', 'mean_fp', 'n_distinct', 'n_repeat', 'sd_ideal', 'n_eff', 'efficiency']
+  arm=S1_resample     n=5    sd_fp=0.0pp mean_fp=0.0% n_eff=inf eff=inf
+  arm=S1_resample     n=10   sd_fp=23.41pp mean_fp=12.75% n_eff=0.18068364217877467 eff=0.018068364217877466
+  arm=S1_resample     n=20   sd_fp=16.55pp mean_fp=9.28% n_eff=0.361511300717074 eff=0.0180755650358537
+  arm=S1_resample     n=40   sd_fp=16.07pp mean_fp=11.39% n_eff=0.3835348781221792 eff=0.009588371953054479
+  arm=S1_resample     n=60   sd_fp=18.18pp mean_fp=19.61% n_eff=0.2996929907069495 eff=0.0049948831784491585
+  arm=S1_resample     n=80   sd_fp=17.92pp mean_fp=20.17% n_eff=0.3082758620689659 eff=0.003853448275862074
+  arm=S1_resample     n=96   sd_fp=18.04pp mean_fp=20.17% n_eff=0.30430118617844276 eff=0.003169804022692112
+  arm=S2_new_records  n=5    sd_fp=0.0pp mean_fp=0.0% n_eff=inf eff=inf
+  arm=S2_new_records  n=10   sd_fp=7.24pp mean_fp=5.17% n_eff=1.8908171621862224 eff=0.18908171621862224
+  arm=S2_new_records  n=20   sd_fp=4.69pp mean_fp=3.83% n_eff=4.494591620820998 eff=0.2247295810410499
+  arm=S2_new_records  n=40   sd_fp=2.1pp mean_fp=0.92% n_eff=22.513449920508783 eff=0.5628362480127196
+  arm=S2_new_records  n=60   sd_fp=0.99pp mean_fp=0.25% n_eff=100.43234042553206 eff=1.6738723404255345
+  arm=S2_new_records  n=80   sd_fp=0.48pp mean_fp=0.06% n_eff=430.56972972973017 eff=5.382121621621627
+  arm=S2_new_records  n=96   sd_fp=0.0pp mean_fp=0.0% n_eff=inf eff=inf
+  paper: resampling 18.0pp at n=96 vs distinct 0.00pp; n_eff 0.18-0.38 vs >430
+
+==============================================================================
+E4. ��3.6 search cost and stability (EXP-V1-09-summary, EXP-V1-08-summary)
+==============================================================================
+  --- EXP-V1-09-summary.csv
+    {'batch': 'IMS 1st_test', 'method': 'A: 3-sigma RMS', 'mean_fp_rate': '0.0238', 'median_fp_rate': '0.0', 'max_fp_rate': '0.1429', 'modal_hyper': '-', 'modal_share': '1.0', 'seconds_per_fold': '0.0001'}
+    {'batch': 'IMS 1st_test', 'method': 'B: Mahalanobis', 'mean_fp_rate': '0.0476', 'median_fp_rate': '0.0', 'max_fp_rate': '0.1429', 'modal_hyper': '-', 'modal_share': '1.0', 'seconds_per_fold': '0.0003'}
+    {'batch': 'IMS 1st_test', 'method': 'C: One-Class SVM (tuned)', 'mean_fp_rate': '0.131', 'median_fp_rate': '0.1429', 'max_fp_rate': '0.4286', 'modal_hyper': '(0.1, 0.1)', 'modal_share': '0.833', 'seconds_per_fold': '0.9322'}
+    {'batch': 'IMS 1st_test', 'method': 'D: Isolation Forest (tuned)', 'mean_fp_rate': '0.0119', 'median_fp_rate': '0.0', 'max_fp_rate': '0.1429', 'modal_hyper': '(200, 0.8)', 'modal_share': '0.333', 'seconds_per_fold': '13.965'}
+    {'batch': 'IMS 2nd_test', 'method': 'A: 3-sigma RMS', 'mean_fp_rate': '0.0238', 'median_fp_rate': '0.0', 'max_fp_rate': '0.1429', 'modal_hyper': '-', 'modal_share': '1.0', 'seconds_per_fold': '0.0001'}
+    {'batch': 'IMS 2nd_test', 'method': 'B: Mahalanobis', 'mean_fp_rate': '0.119', 'median_fp_rate': '0.0714', 'max_fp_rate': '0.2857', 'modal_hyper': '-', 'modal_share': '1.0', 'seconds_per_fold': '0.0003'}
+    {'batch': 'IMS 2nd_test', 'method': 'C: One-Class SVM (tuned)', 'mean_fp_rate': '0.3571', 'median_fp_rate': '0.2857', 'max_fp_rate': '0.7143', 'modal_hyper': '(0.001, 0.1)', 'modal_share': '1.0', 'seconds_per_fold': '0.2524'}
+    {'batch': 'IMS 2nd_test', 'method': 'D: Isolation Forest (tuned)', 'mean_fp_rate': '0.0476', 'median_fp_rate': '0.0', 'max_fp_rate': '0.2857', 'modal_hyper': '(200, 0.5)', 'modal_share': '1.0', 'seconds_per_fold': '6.4557'}
+    {'batch': 'IMS 4th_test', 'method': 'A: 3-sigma RMS', 'mean_fp_rate': '0.0238', 'median_fp_rate': '0.0', 'max_fp_rate': '0.1429', 'modal_hyper': '-', 'modal_share': '1.0', 'seconds_per_fold': '0.0001'}
+    {'batch': 'IMS 4th_test', 'method': 'B: Mahalanobis', 'mean_fp_rate': '0.1667', 'median_fp_rate': '0.0', 'max_fp_rate': '0.5714', 'modal_hyper': '-', 'modal_share': '1.0', 'seconds_per_fold': '0.0002'}
+    {'batch': 'IMS 4th_test', 'method': 'C: One-Class SVM (tuned)', 'mean_fp_rate': '0.2619', 'median_fp_rate': '0.1429', 'max_fp_rate': '0.8571', 'modal_hyper': '(0.001, 0.1)', 'modal_share': '1.0', 'seconds_per_fold': '0.2643'}
+    {'batch': 'IMS 4th_test', 'method': 'D: Isolation Forest (tuned)', 'mean_fp_rate': '0.0238', 'median_fp_rate': '0.0', 'max_fp_rate': '0.1429', 'modal_hyper': '(100, 0.5)', 'modal_share': '0.5', 'seconds_per_fold': '6.4085'}
+  --- EXP-V1-08-summary.csv
+    {'dataset': 'IMS 1st_test', 'detector': 'A: 3-sigma RMS', 'mean_fp_rate': '0.0238', 'median_fp_rate': '0.0', 'std_fp_rate': '0.0556', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.0001'}
+    {'dataset': 'IMS 1st_test', 'detector': 'B: Mahalanobis', 'mean_fp_rate': '0.0476', 'median_fp_rate': '0.0', 'std_fp_rate': '0.0703', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.0003'}
+    {'dataset': 'IMS 1st_test', 'detector': 'C: One-Class SVM', 'mean_fp_rate': '0.2738', 'median_fp_rate': '0.2857', 'std_fp_rate': '0.197', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.002'}
+    {'dataset': 'IMS 1st_test', 'detector': 'D: Isolation Forest', 'mean_fp_rate': '0.0357', 'median_fp_rate': '0.0', 'std_fp_rate': '0.0646', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.2068'}
+    {'dataset': 'IMS 2nd_test', 'detector': 'A: 3-sigma RMS', 'mean_fp_rate': '0.0238', 'median_fp_rate': '0.0', 'std_fp_rate': '0.0583', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.0001'}
+    {'dataset': 'IMS 2nd_test', 'detector': 'B: Mahalanobis', 'mean_fp_rate': '0.119', 'median_fp_rate': '0.0714', 'std_fp_rate': '0.1405', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.0002'}
+    {'dataset': 'IMS 2nd_test', 'detector': 'C: One-Class SVM', 'mean_fp_rate': '0.4524', 'median_fp_rate': '0.3571', 'std_fp_rate': '0.2773', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.0013'}
+    {'dataset': 'IMS 2nd_test', 'detector': 'D: Isolation Forest', 'mean_fp_rate': '0.0476', 'median_fp_rate': '0.0', 'std_fp_rate': '0.1166', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.2069'}
+    {'dataset': 'IMS 4th_test', 'detector': 'A: 3-sigma RMS', 'mean_fp_rate': '0.0238', 'median_fp_rate': '0.0', 'std_fp_rate': '0.0583', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.0001'}
+    {'dataset': 'IMS 4th_test', 'detector': 'B: Mahalanobis', 'mean_fp_rate': '0.1667', 'median_fp_rate': '0.0', 'std_fp_rate': '0.2621', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.0002'}
+    {'dataset': 'IMS 4th_test', 'detector': 'C: One-Class SVM', 'mean_fp_rate': '0.5', 'median_fp_rate': '0.5', 'std_fp_rate': '0.2673', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.0015'}
+    {'dataset': 'IMS 4th_test', 'detector': 'D: Isolation Forest', 'mean_fp_rate': '0.0476', 'median_fp_rate': '0.0', 'std_fp_rate': '0.1166', 'mean_auroc': '', 'mean_recall_at_10pct': '', 'mean_f1': '', 'seconds': '0.2054'}
+    {'dataset': 'MFPT', 'detector': 'A: 3-sigma RMS', 'mean_fp_rate': '0.0606', 'median_fp_rate': '0.0', 'std_fp_rate': '0.105', 'mean_auroc': '1.0', 'mean_recall_at_10pct': '1.0', 'mean_f1': '0.662', 'seconds': '0.0001'}
+    {'dataset': 'MFPT', 'detector': 'B: Mahalanobis', 'mean_fp_rate': '0.5455', 'median_fp_rate': '0.6364', 'std_fp_rate': '0.3278', 'mean_auroc': '1.0', 'mean_recall_at_10pct': '1.0', 'mean_f1': '0.6268', 'seconds': '0.0003'}
+    {'dataset': 'MFPT', 'detector': 'C: One-Class SVM', 'mean_fp_rate': '0.6667', 'median_fp_rate': '0.8182', 'std_fp_rate': '0.2624', 'mean_auroc': '1.0', 'mean_recall_at_10pct': '1.0', 'mean_f1': '0.6183', 'seconds': '0.0013'}
+    {'dataset': 'MFPT', 'detector': 'D: Isolation Forest', 'mean_fp_rate': '0.0', 'median_fp_rate': '0.0', 'std_fp_rate': '0.0', 'mean_auroc': '1.0', 'mean_recall_at_10pct': '1.0', 'mean_f1': '0.6667', 'seconds': '0.226'}
+
+==============================================================================
+F. ��5.1 per-bearing RMS (EXP-V2-03-per-bearing-rms.csv)
+==============================================================================
+  min=0.1706 (K004) max=0.4028 (K001)  paper: 0.171-0.403

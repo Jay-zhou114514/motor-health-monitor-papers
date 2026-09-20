@@ -1,0 +1,36 @@
+
+==============================================================================
+D. ��3.4 reproduction count (EXP-V1-07-folds.csv)
+==============================================================================
+  selected feature_group values: ['RMS + centroid (problem)']
+  IMS 1st_test     folds=12   inflation>1: 0 []
+  IMS 2nd_test     folds=6    inflation>1: 0 []
+  IMS 4th_test     folds=6    inflation>1: 0 []
+  MFPT             folds=3    inflation>1: 1 [('baseline_3.mat', 1.5756)]
+  TOTAL folds=27  inflation>1=1
+  paper: 0 of 26 (IMS 0 of 24, MFPT 0 of 2 further), the 1.576 MFPT fold is the original case
+  all-scheme totals: {'IMS 1st_test': 108, 'IMS 2nd_test': 54, 'IMS 4th_test': 54, 'MFPT': 27}
+
+==============================================================================
+E2. ��3.6 variance decomposition, recomputed (EXP-V1-10-variance-decomposition.csv)
+==============================================================================
+  A_fit_composition    n=50   mean=4.29% SD=5.2pp
+  B_random_seed        n=50   mean=3.43% SD=4.39pp
+  C_both               n=50   mean=4.43% SD=5.18pp
+  paper: 5.20pp split composition, 4.39pp seed only, 5.18pp both vary
+
+==============================================================================
+E5. ��3.6 '86% had minimum validation FP exactly zero' - where does it live?
+==============================================================================
+  EXP-V1-10-null.csv: columns=['null_kind', 'dataset_index', 'n_replicates', 'modal_share', 'n_distinct_cfg', 'tie_share', 'val_fp_mean', 'test_fp_mean', 'test_fp_std'] rows=80
+  EXP-V1-10-extra-checks.csv: columns=['replicate', 'rms_test_fp', 'rms_val_fp', 'default_forest_test_fp', 'default_forest_test_pct'] rows=50
+  EXP-V1-10-controls.csv: columns=['control', 'cfg', 'test_fp', 'n_test_windows'] rows=2
+  EXP-V1-10-summary.csv: columns=['arm', 'n_replicates', 'modal_cfg', 'modal_share', 'modal_share_lo', 'modal_share_hi', 'n_distinct_cfg', 'entropy_norm', 'tie_share', 'test_fp_mean', 'test_fp_std', 'test_fp_min', 'test_fp_max', 'test_pct_mean_mean', 'test_pct_mean_std', 'val_fp_mean', 'seconds_total'] rows=4
+
+==============================================================================
+G. window/recording bookkeeping
+==============================================================================
+  EXP-V2-03-summary.csv: n values = []   (n_train values = ['10', '20', '40', '60', '80', '96'])
+  EXP-V2-05-summary.csv: n values = ['150', '200', '250', '350']   (n_train values = [])
+  EXP-V2-06-summary.csv: n values = ['150', '200', '250', '350']   (n_train values = [])
+  EXP-V2-01-summary.csv: n values = []   (n_train values = ['10', '20', '40', '5', '60', '80', '96'])
