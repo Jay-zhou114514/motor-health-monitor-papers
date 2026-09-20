@@ -162,10 +162,9 @@ the RMS plus spectral-centroid feature group; other schemes give a different fol
 
 ### 3.5 Reproducibility of these results
 
-Verification depth differs by experiment and we state it per experiment. EXP-V2-04, EXP-V2-05 and
-EXP-V2-06 were re-run and reproduced byte-for-byte. EXP-V1-10 reproduced exactly on all scientific
+Verification depth differs by experiment and we state it per experiment. EXP-V2-03, EXP-V2-04, EXP-V2-05 and EXP-V2-06 were re-run and reproduced byte-for-byte. EXP-V1-10 reproduced exactly on all scientific
 columns (only its wall-clock timing column differed). EXP-V1-05 to V1-09 passed invariant and
-independent-recomputation checks with a stored hash baseline. For EXP-V1-11, EXP-V2-01 and EXP-V2-02 no archived verification record could be located while preparing this draft: the project's verification script covers EXP-V1-05 to EXP-V1-10 only, and the hash baselines on file belong to EXP-V1-05 to V1-10, EXP-V2-04 and EXP-V2-05. We therefore make no verification claim for those three experiments. The experiment carrying §3.1 (EXP-V2-03) is in the same position and we flag this as a remaining limitation. Analysis errors were found and corrected during the study; the project keeps a standing register of the classes involved (`docs/EXPERIMENT_AFTERCARE.md`, an internal working-tree document). They lie in summary, verdict and verification logic and in data handling such as seed derivation and file counting; none lies in the model fitting itself.
+independent-recomputation checks with a stored hash baseline. For EXP-V1-11, EXP-V2-01 and EXP-V2-02 no archived verification record could be located while preparing this draft: the project's verification script covers EXP-V1-05 to EXP-V1-10 only, and the hash baselines on file belong to EXP-V1-05 to V1-10, EXP-V2-04 and EXP-V2-05. We therefore make no verification claim for those three experiments. The experiment carrying §3.1 (EXP-V2-03) has since been re-run and reproduced byte-for-byte on all scientific columns (`experiments/EXP-V2-03-hashes.txt`). Analysis errors were found and corrected during the study; the project keeps a standing register of the classes involved (`docs/EXPERIMENT_AFTERCARE.md`, an internal working-tree document). They lie in summary, verdict and verification logic and in data handling such as seed derivation and file counting; none lies in the model fitting itself.
 
 ### 3.6 The evaluation protocol itself
 
@@ -361,8 +360,7 @@ alternative.
    operating-condition diversity.
 6. Verification is not uniform: four experiments were re-run and compared hash-for-hash; older
    experiments have invariant and recomputation checks plus a stored hash baseline only.
-7. The experiment carrying the scope effect (§3.1) has not been through a re-run comparison;
-   its evidence rests on invariant and recomputation checks only.
+7. The experiment carrying the scope effect (§3.1) was re-run on 2026-09-21 and reproduced on all scientific columns; the record is in `experiments/EXP-V2-03-hashes.txt`.
 8. Literature scope: the search covered Scopus and arXiv; Chinese-language venues and PHM conference proceedings are not comprehensively covered. References [11] and [13] are cited at title level only because their abstracts were not retrievable.
 9. Window construction is fixed in the frozen protocol for IMS and MFPT only; for Paderborn, PRONOSTIA and XJTU-SY it is defined in the experiment code.
 10. The rates in §3.2 are window-level and their resolution differs between folds, so absolute rates are not directly comparable across cells; the comparisons are made on the SD scale.
