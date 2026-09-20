@@ -1,0 +1,105 @@
+第一候选：ISDMD 2026
+第四届动力学、监测与诊断国际学术研讨会
+📍 中国·温州
+📅 2026年11月20–22日
+⏰ 官网当前显示：论文最终稿 10月20日；部分国内会议页面显示投稿截止 11月6日，存在时间信息不一致，因此这里一定要以投稿系统实际状态为准。
+会议主题直接包括：
+Monitoring Technologies and Systems
+Fault Diagnosis and Prediction
+Data Analysis and Intelligent Processing
+Engineering Applications
+vibration monitoring
+intelligent diagnosis
+而且官网明确说录用论文经过 2–3 位专家评审后发表到 Journal of Physics: Conference Series (JPCS)，并提交 EI Compendex、Scopus。
+对你的适配度：★★★★★
+这是我目前看到的题目层面最直接匹配的。
+你的论文：
+vibration → bearing → healthy-data-only → anomaly detection → evaluation stability
+基本都在它的研究范围里。
+尤其你现在不再强调“我发明了一个 detector”，而是：
+有限健康数据条件下，故障检测结果和评价稳定性到底有多可靠
+这也属于 monitoring / diagnosis / data analysis。
+最大优点
+你甚至不需要把论文强行改成“AI论文”。
+可以自然地写成：
+Reliability of One-Class Bearing Anomaly Detection under Limited Healthy Data
+或者：
+Evaluating False-Alarm Stability of Bearing Health Monitoring under Limited Healthy Observations
+这和会议方向非常自然。
+最大问题
+官网日期存在不一致。
+官网写的是：
+Full Paper Submission: September 6
+Final Paper: October 20
+而会议平台显示：
+投稿截止：November 6
+所以我不会把“11月6日”当成绝对可靠的 deadline。你如果准备投，应该直接进入官方投稿系统确认是否仍开放。
+2. 第二候选：CSRSE 2026
+第六届复杂系统可靠性科学与工程国际会议
+📍 杭州
+📅 2026年12月12–13日
+⏰ 投稿截止：2026年11月10日
+录用：11月25日
+终稿：12月2日。
+这是目前我认为最稳妥的“现在还能准备”的目标之一。
+官方主题是：
+Reliability for AI & AI for Reliability
+征稿包括：
+Reliability for AI
+AI for Reliability
+Complex Equipment
+Cyber-Physical Systems
+reliability modeling
+reliability evaluation
+reliability assurance
+而且明确征集中文、英文原创论文。
+对你的适配度：★★★★☆
+它和你的论文不是传统的：
+“轴承故障诊断算法”
+匹配。
+但与你现在正在形成的真正研究主线：
+数据有限时，数据驱动 PHM 结论的可靠性如何评价？
+反而很合适。
+这其实是我现在比较喜欢它的原因。
+你如果投 CSRSE，我建议论文标题完全换一个视角
+不要：
+A Mahalanobis-based Bearing Anomaly Detection Method
+也不要：
+A New Bearing Fault Diagnosis Algorithm
+而是类似：
+Reliability of One-Class Bearing Anomaly Detection under Limited Healthy Data
+或者更偏 methodology：
+Evaluation Uncertainty in Data-Driven Bearing Health Monitoring under Limited Healthy Observations
+这样 reviewer 不会期待你和 Transformer / CNN / self-supervised learning 比准确率。
+而会看：
+sampling
+evaluation protocol
+uncertainty
+stability
+reliability
+这正好是你现在 V1–V2 的研究轨迹。
+3. 第三候选：AIIE 2026
+第二届人工智能与智能装备国际学术会议
+📍 西安
+📅 2026年11月6–8日
+⏰ 官网当前显示正式 Full Paper Deadline 已是 8月20日，但 Final Paper Deadline 是 10月6日；部分会议平台仍显示 9月22日投稿截止。这个时间同样存在不一致，因此不能简单认为现在一定还能投。
+主题包括：
+AI for intelligent equipment
+intelligent sensing
+industrial equipment monitoring
+intelligent fault diagnosis and predictive maintenance
+equipment reliability and lifecycle management
+data analytics
+官方也明确写到录用论文发表后提交 EI Compendex / Scopus。
+对你的适配度：★★★☆☆
+能投。
+但我不会优先。
+因为你的论文真正的价值已经不是：
+“AI + equipment”
+而是：
+evaluation reliability / small-sample uncertainty
+AIIE 更偏：
+AI → intelligent equipment → applications
+如果你把论文硬往 AI 靠，反而会削弱你的研究定位。
+所以它更适合：
+如果你想要一个 EI conference backup。
