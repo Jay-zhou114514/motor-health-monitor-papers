@@ -1,0 +1,14 @@
+==============================================================================
+EXP-V2-05-raw.csv
+==============================================================================
+  Isolation Forest PRONOSTIA  C1             k=1 between-fold SD 10.28 pp (folds=7) -> k=4 4.98 pp | SD drops: yes | monotone: yes
+  Isolation Forest PRONOSTIA  C2             k=1 between-fold SD 12.15 pp (folds=7) -> k=4 8.4 pp | SD drops: yes | monotone: yes
+  Isolation Forest PRONOSTIA  C3             k=1 between-fold SD 3.23 pp (folds=3) -> k=2 4.15 pp | SD drops: NO | monotone: no
+  Isolation Forest XJTU-SY    35Hz12kN       k=1 between-fold SD 19.19 pp (folds=4) -> k=3 29.25 pp | SD drops: NO | monotone: no
+  Isolation Forest XJTU-SY    37.5Hz11kN     k=1 between-fold SD 13.09 pp (folds=4) -> k=3 30.06 pp | SD drops: NO | monotone: no
+  Isolation Forest XJTU-SY    40Hz10kN       k=1 between-fold SD 14.16 pp (folds=5) -> k=4 18.89 pp | SD drops: NO | monotone: no
+Traceback (most recent call last):
+  File "C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\REVIEW_round4_sd_definition_check.py", line 63, in <module>
+    f"(paper claims {KNOWN[name].get(detector, '?')})")
+                     ~~~~~^^^^^^
+KeyError: 'EXP-V2-05-raw.csv'

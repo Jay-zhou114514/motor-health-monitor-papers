@@ -23,7 +23,7 @@
   `conference-track/CLAIM_EVIDENCE_MAP.md`, `conference-track/FIG1_NOTES.md`, the EXP-V2-04/05/06
   preregistrations and the frozen experiment scripts. Concerns that overlap earlier rounds are echoes
   rather than independent discoveries and are marked as such; the concerns I believe are new to this
-  round are RC-M1, RC-M3, RC-M4, RC-m3, RC-m7 and RC-m8 (RC-m5 and RC-m10 echo a round-2 minor about missing window reporting, and RC-m7 is adjacent to round-2 R1-M6).
+  round are RC-M1, RC-M3, RC-M4, RC-m3, RC-m5 and RC-m7.
 - **Round-4 purpose served.** The question set by this round is whether a reader outside the project
   could reconstruct each number, its boundary, and the information omitted. My verdict is: the
   arithmetic core is in better shape than at any earlier round - every headline number I recomputed

@@ -23,9 +23,7 @@ own estimand, on overlapping but different data, and we make no ordering claim b
 against detector choice.
 Holding out whole bearings, rather than only held-out recordings, moved the same detector's
 reported rate from a single deterministic evaluation with zero alarms in 24 recordings to a
-bimodal set of fold means, three at or below 1.55% and three at or above 69.40%. At a fixed sample size, increasing the number of
-distinct training bearings reduced the spread of the reported rate for two of three detectors
-(6 of 6 conditions each), whereas the third saturated and could not be evaluated this way.
+bimodal set of fold means, three at or below 1.55% and three at or above 69.40%. At a fixed sample size, increasing the number of distinct training bearings reduced the pooled spread of the reported rate for two of three detectors (6 of 6 conditions each under the pooled definition; 2 of 6 and 4 of 6 under the between-fold definition), whereas the third saturated and could not be evaluated this way.
 Moving the healthy/degraded boundary, a choice that run-to-failure data leave to the analyst,
 shifted the reported uncertainty by 2.40 percentage points on PRONOSTIA, where the set of
 admissible bearings is identical under all five rules. On XJTU-SY the same sweep gave 5.19
@@ -54,7 +52,7 @@ can be trusted and what determines it. We structure the study around three analy
 
 ## 2. Protocol
 
-**Datasets.** IMS `1st_test` (12 healthy recordings, 20 kHz, 1.024 s), IMS `2nd_test` and
+**Datasets.** IMS `1st_test` (12 healthy recordings — the files carrying the `2003.10.22*` name prefix, out of the 15 in the archive — 20 kHz, 1.024 s), IMS `2nd_test` and
 `4th_test` (6 recordings each), Paderborn K001–K006 (6 healthy bearings, four operating
 conditions, 20 recordings each, 64 kHz, 4 s), MFPT (3 healthy recordings plus labelled faults),
 XJTU-SY (15 bearings, 3 conditions, 25.6 kHz, 1.28 s per record, one record per minute), and
@@ -68,8 +66,7 @@ and Isolation Forest. The alarm threshold is always the 0.99 quantile of the *tr
 distribution; the test set never participates in any selection.
 
 **Discipline.** Every experiment was pre-registered before it was run; when a criterion had to
-change, a separate amendment was filed rather than the original being edited. Evidence is graded
-A–D; exploratory analyses are labelled as such. Four of the experiments carrying the main claims
+change, a separate amendment was filed rather than the original being edited. The project's protocol grades evidence A–D; no claim in this paper reaches Level A, since every measurement comes from a single rig or a single split, and exploratory checks are labelled as such. Four of the experiments carrying the main claims
 were re-run and compared hash-for-hash with their archived outputs (§3.5).
 
 ---
@@ -111,14 +108,15 @@ without repeating the comparison.
 Holding the sample size fixed at 20 recordings and restricting training bearings to the **same operating condition** as the held-out bearing (EXP-V2-05 for the Isolation Forest row, EXP-V2-06 for the 3σ RMS and Mahalanobis rows;
 `experiments/EXP-V2-05-summary.csv`, `EXP-V2-06-summary.csv`):
 
-| Detector | Negative rank correlation between k and SD | SD(k_max) < SD(k=1) | k=1 mean FP |
+| Detector | Negative rank correlation between k and SD | SD(k_max) < SD(k=1), pooled SD | k=1 mean FP |
 | --- | ---: | ---: | ---: |
 | 3σ RMS threshold | **6/6** | **6/6** | 23.7–49.5% (SD 33.0–48.2 pp) |
 | Isolation Forest (200, 0.5) | **6/6** | **6/6** | 16.9–57.6% (PRONOSTIA 16.9–21.5%, XJTU-SY 54.5–57.6%; SD 23.9–44.4 pp) |
 | Mahalanobis distance | 2/6 | 2/6 | **66.8–100%** (one cell exactly 100%; SD 0.0–35.4 pp) |
 
-For the two non-saturated detectors, going from one training bearing to k_max reduces the
-standard deviation of the reported rate **at a fixed number of recordings**. The measured
+SD in this table is the pooled standard deviation over the fold × repeat evaluations stored in the summary CSVs, not the between-fold SD of Section 3.1. The verdicts depend on that choice: recomputing the same cells as the SD of per-fold mean rates gives 2 of 6 for Isolation Forest, 4 of 6 for 3σ RMS and 0 of 6 for Mahalanobis (`REVIEW_round4_sd_definition_check2.txt`), so under the between-fold definition both non-saturated detectors fall short of the 80% share their preregistration required, and the saturated detector is excluded either way. We report both readings and treat the pooling as an open adjudication item rather than a settled result.
+
+For the two non-saturated detectors, and under the pooled definition, going from one training bearing to k_max reduces the standard deviation of the reported rate **at a fixed number of recordings**. The measured
 per-cell ratios SD(k_max)/SD(k=1) are 0.76, 0.75, 0.67, 0.68, 0.91 and 0.55 for 3σ RMS and 0.32,
 0.57, 0.34, 0.58, 0.86 and 0.52 for Isolation Forest, that is a reduction of roughly 10 to 45
 percent for the first detector and 14 to 68 percent for the second, not a uniform halving.
@@ -168,10 +166,7 @@ the RMS plus spectral-centroid feature group; other schemes give a different fol
 Verification depth differs by experiment and we state it per experiment. EXP-V2-04, EXP-V2-05 and
 EXP-V2-06 were re-run and reproduced byte-for-byte. EXP-V1-10 reproduced exactly on all scientific
 columns (only its wall-clock timing column differed). EXP-V1-05 to V1-09 passed invariant and
-independent-recomputation checks with a stored hash baseline. EXP-V1-11, EXP-V2-01 and EXP-V2-02 carry
-invariant and recomputation checks together with an archived hash baseline, but have not been
-re-run for comparison. The experiment carrying §3.1 (EXP-V2-03) is in the same category and we
-flag this as a remaining limitation. Analysis errors were found and corrected during the study; the project keeps a standing register of the classes involved (`docs/EXPERIMENT_AFTERCARE.md`, an internal working-tree document). They lie in summary, verdict and verification logic and in data handling such as seed derivation and file counting; none lies in the model fitting itself.
+independent-recomputation checks with a stored hash baseline. For EXP-V1-11, EXP-V2-01 and EXP-V2-02 no archived verification record could be located while preparing this draft: the project's verification script covers EXP-V1-05 to EXP-V1-10 only, and the hash baselines on file belong to EXP-V1-05 to V1-10, EXP-V2-04 and EXP-V2-05. We therefore make no verification claim for those three experiments. The experiment carrying §3.1 (EXP-V2-03) is in the same position and we flag this as a remaining limitation. Analysis errors were found and corrected during the study; the project keeps a standing register of the classes involved (`docs/EXPERIMENT_AFTERCARE.md`, an internal working-tree document). They lie in summary, verdict and verification logic and in data handling such as seed derivation and file counting; none lies in the model fitting itself.
 
 ### 3.6 The evaluation protocol itself
 
@@ -346,9 +341,7 @@ alternative.
 
 ### 5.5 What would change our conclusions
 
-1. If the scope effect fails to reproduce on a rig whose bearings are more uniform, the
-   order-of-magnitude framing would have to be restricted to rigs with strong between-bearing
-   variation.
+1. If the scope effect fails to reproduce on a rig whose bearings are more uniform, the 3.5-fold lower bound would have to be restricted to rigs with strong between-bearing variation.
 2. If the unit effect is shown to arise from the covariance estimator rather than from unit
    diversity, the recommendation would shift from "more bearings" toward better-regularised
    estimators.
@@ -408,9 +401,7 @@ end.
 The decisive evidence is comparative. Holding out whole bearings moved the reported rate from no
 alarms to 40.63% on the same detector and the same data; because the within-bearing figure is a
 single deterministic evaluation with 4.17-percentage-point resolution, the defensible ratio is
-about 3.5-fold rather than an order of magnitude. At a fixed sample size, adding distinct training
-bearings reduced the spread for two detectors by 10–45% and 14–68% respectively, while the third
-saturated at 67–100% false alarms and became uninformative rather than unstable. Sweeping the
+about 3.5-fold rather than an order of magnitude. At a fixed sample size, and under the pooled SD definition, adding distinct training bearings reduced the spread for two detectors by 10–45% and 14–68% respectively (2 of 6 and 4 of 6 cells under the between-fold definition), while the third saturated at 67–100% false alarms and became uninformative rather than unstable. Sweeping the
 healthy/degraded boundary moved the reported uncertainty by 2.40 percentage points on PRONOSTIA,
 where the admissible bearing set is unchanged; the larger XJTU-SY figure mixes the boundary effect
 with an inclusion effect.
@@ -430,8 +421,7 @@ holdout; fold means 0.00 to 97.10 percent). **(b)** Independent units. At a fixe
 training bearings from a single bearing yields mean false-positive rates of 16.9–57.6% for
 Isolation Forest and 23.7–49.5% for 3σ RMS (SD 23.9–44.4 pp and 33.0–48.2 pp respectively),
 whereas using every training bearing available in the cell (k_max between 2 and 4, depending on
-the condition) reduces the spread; the effect holds for 3σ RMS and Isolation Forest
-(6 of 6 operating conditions each) but not for the Mahalanobis detector, which saturates at 67–
+the condition) reduces the spread; the effect holds for 3σ RMS and Isolation Forest (6 of 6 operating conditions each under the pooled SD definition, 4 of 6 and 2 of 6 under the between-fold definition) but not for the Mahalanobis detector, which saturates at 67–
 100% false alarms and is therefore not testable this way. **(c)** Definition. Run-to-failure data
 carry no onset label, so the healthy/degraded boundary is an analyst choice; across five
 boundary rules the SD of the reported rate ranges over 2.40 pp on PRONOSTIA (inclusion set

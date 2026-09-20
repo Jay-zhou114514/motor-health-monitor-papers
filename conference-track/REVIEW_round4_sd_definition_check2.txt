@@ -1,0 +1,30 @@
+==============================================================================
+EXP-V2-05-raw.csv: between-fold SD (SD of per-fold mean rates)
+==============================================================================
+  Isolation Forest PRONOSTIA  C1             k=1  10.28 pp -> k=4   4.98 pp   drops
+  Isolation Forest PRONOSTIA  C2             k=1  12.15 pp -> k=4   8.40 pp   drops
+  Isolation Forest PRONOSTIA  C3             k=1   3.23 pp -> k=2   4.15 pp   DOES NOT DROP
+  Isolation Forest XJTU-SY    35Hz12kN       k=1  19.19 pp -> k=3  29.25 pp   DOES NOT DROP
+  Isolation Forest XJTU-SY    37.5Hz11kN     k=1  13.09 pp -> k=3  30.06 pp   DOES NOT DROP
+  Isolation Forest XJTU-SY    40Hz10kN       k=1  14.16 pp -> k=4  18.89 pp   DOES NOT DROP
+  ==> Isolation Forest: 2/6 cells drop | paper/figure claim: 6/6 (pooled SD)
+
+==============================================================================
+EXP-V2-06-raw.csv: between-fold SD (SD of per-fold mean rates)
+==============================================================================
+  A_rms_3sigma     PRONOSTIA  C1             k=1  22.15 pp -> k=4  24.09 pp   DOES NOT DROP
+  A_rms_3sigma     PRONOSTIA  C2             k=1  31.45 pp -> k=4  29.09 pp   drops
+  A_rms_3sigma     PRONOSTIA  C3             k=1  38.76 pp -> k=2  34.41 pp   drops
+  A_rms_3sigma     XJTU-SY    35Hz12kN       k=1  38.83 pp -> k=3  37.80 pp   drops
+  A_rms_3sigma     XJTU-SY    37.5Hz11kN     k=1  48.99 pp -> k=3  50.00 pp   DOES NOT DROP
+  A_rms_3sigma     XJTU-SY    40Hz10kN       k=1  39.89 pp -> k=4  29.07 pp   drops
+  ==> A_rms_3sigma: 4/6 cells drop | paper/figure claim: 6/6 (pooled SD)
+
+  B_mahalanobis    PRONOSTIA  C1             k=1   9.74 pp -> k=4  15.59 pp   DOES NOT DROP
+  B_mahalanobis    PRONOSTIA  C2             k=1  14.97 pp -> k=4  32.35 pp   DOES NOT DROP
+  B_mahalanobis    PRONOSTIA  C3             k=1  13.37 pp -> k=2  45.22 pp   DOES NOT DROP
+  B_mahalanobis    XJTU-SY    35Hz12kN       k=1   0.00 pp -> k=3  41.62 pp   DOES NOT DROP
+  B_mahalanobis    XJTU-SY    37.5Hz11kN     k=1  16.19 pp -> k=3  53.51 pp   DOES NOT DROP
+  B_mahalanobis    XJTU-SY    40Hz10kN       k=1  14.65 pp -> k=4  28.77 pp   DOES NOT DROP
+  ==> B_mahalanobis: 0/6 cells drop | paper/figure claim: 2/6 (pooled SD)
+
