@@ -1,0 +1,17 @@
+distinct numeric tokens: en=144 zh=144
+total numeric tokens:    en=434 zh=434
+
+### present in English, fewer in Chinese
+  0.1          en=2 zh=1   (en-only count 1)
+  0.6          en=1 zh=0   (en-only count 1)
+  4            en=19 zh=18   (en-only count 1)
+  2            en=19 zh=18   (en-only count 1)
+  3            en=29 zh=28   (en-only count 1)
+  20           en=16 zh=15   (en-only count 1)
+
+### present in Chinese, fewer in English
+  0            zh=12 en=8   (zh-only count 4)
+  0.00         zh=9 en=8   (zh-only count 1)
+  21           zh=1 en=0   (zh-only count 1)
+
+translation check complete
