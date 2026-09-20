@@ -181,3 +181,28 @@ EXP-V1-04 与 EXP-V1-05 的结果审查、假说判定与风险审查均已于 2
   V1-05~V1-10、V2-04、V2-05。稿件已改为如实声明"未找到可查证的验证记录"。
 - **RC-M3 / RC-M4**：§2 已补 IMS `1st_test` 的 `2003.10.22*` 选取规则（12/15 文件），
   已如实改写 A–D 分级声明；§5.5 中遗留的 order-of-magnitude 残句已清除。
+
+
+---
+
+## 2026-09-20 更新（第三次）：第二层主张按作者裁决收紧；Layer 1 扫描完成（未改正文）
+
+**第二层（单元数）主张已收紧并落到四处**（Abstract / §3.2 / §7 / Fig.1 图注）以及
+`CLAIM_EVIDENCE_MAP.md` 的 C9 与「禁止表述」表：
+
+> 在有限健康数据下，检测器性能的稳定性依赖于**如何定义与估计跨折变异**；
+> **按折间变异评估时，预注册的 80% 稳定性标准未被达到**（iForest 2/6、3σ RMS 4/6）。
+> 池化口径下的 6/6 降级为 sensitivity，不再作为结果陈述。
+
+**Layer 1（humanizer / humanizer-zh）扫描完成，只出清单、未改任何正文**：
+`POLISH_L1_humanizer_scan.md`（脚本与原始输出 `POLISH_L1_scan.py/.txt`）。
+结论：词汇层干净（AI 高频词 2 处、连接词只有 therefore 13 处）；问题集中在
+§3.6 四段同构的粗体开场、元话语密度、rather than 句式、27 句超长句，
+以及 false-alarm/false-positive、recording(s)/record(s)、healthy-phase rule/boundary 三组术语混用。
+
+**扫描同时发现一条 claim 缺陷（需在 Layer 2 前修）**：L293（§5.1）与 L404（§7）
+仍写「the defensible ratio is about 3.5-fold rather than an order of magnitude」——
+第 3 轮 RB-M2 要求删除的「下界当上界」残句，上一轮只清了 §5.5。
+
+**Layer 2（人工学术润色）待 venue 确定后执行**，需要 page limit / paper type /
+abstract length / section structure / reference style 五项参数。

@@ -23,7 +23,7 @@ own estimand, on overlapping but different data, and we make no ordering claim b
 against detector choice.
 Holding out whole bearings, rather than only held-out recordings, moved the same detector's
 reported rate from a single deterministic evaluation with zero alarms in 24 recordings to a
-bimodal set of fold means, three at or below 1.55% and three at or above 69.40%. At a fixed sample size, increasing the number of distinct training bearings reduced the pooled spread of the reported rate for two of three detectors (6 of 6 conditions each under the pooled definition; 2 of 6 and 4 of 6 under the between-fold definition), whereas the third saturated and could not be evaluated this way.
+bimodal set of fold means, three at or below 1.55% and three at or above 69.40%. At a fixed sample size, whether the reported rate looks stable depends on how cross-fold variation is defined and estimated: under the pooled definition the spread falls for two of the three detectors in every condition, but under between-fold variation the preregistered 80% stability criterion is not met (2 of 6 conditions for Isolation Forest, 4 of 6 for the 3σ RMS threshold, and 0 of 6 for the third detector, which saturates).
 Moving the healthy/degraded boundary, a choice that run-to-failure data leave to the analyst,
 shifted the reported uncertainty by 2.40 percentage points on PRONOSTIA, where the set of
 admissible bearings is identical under all five rules. On XJTU-SY the same sweep gave 5.19
@@ -114,7 +114,7 @@ Holding the sample size fixed at 20 recordings and restricting training bearings
 | Isolation Forest (200, 0.5) | **6/6** | **6/6** | 16.9–57.6% (PRONOSTIA 16.9–21.5%, XJTU-SY 54.5–57.6%; SD 23.9–44.4 pp) |
 | Mahalanobis distance | 2/6 | 2/6 | **66.8–100%** (one cell exactly 100%; SD 0.0–35.4 pp) |
 
-SD in this table is the pooled standard deviation over the fold × repeat evaluations stored in the summary CSVs, not the between-fold SD of Section 3.1. The verdicts depend on that choice: recomputing the same cells as the SD of per-fold mean rates gives 2 of 6 for Isolation Forest, 4 of 6 for 3σ RMS and 0 of 6 for Mahalanobis (`REVIEW_round4_sd_definition_check2.txt`), so under the between-fold definition both non-saturated detectors fall short of the 80% share their preregistration required, and the saturated detector is excluded either way. We report both readings and treat the pooling as an open adjudication item rather than a settled result.
+SD in this table is the pooled standard deviation over the fold × repeat evaluations stored in the summary CSVs, not the between-fold SD of Section 3.1. The verdicts depend on that choice: recomputing the same cells as the SD of per-fold mean rates gives 2 of 6 for Isolation Forest, 4 of 6 for 3σ RMS and 0 of 6 for Mahalanobis (`REVIEW_round4_sd_definition_check2.txt`), so under the between-fold definition both non-saturated detectors fall short of the 80% share their preregistration required, and the saturated detector is excluded either way. We report both readings, and the claim we make here is the weaker one: with this little healthy data, the stability of detector performance depends on how cross-fold variation is defined and estimated, and evaluated by between-fold variation the preregistered 80% stability criterion is not met. The pooled reading is reported as a sensitivity, not as the result.
 
 For the two non-saturated detectors, and under the pooled definition, going from one training bearing to k_max reduces the standard deviation of the reported rate **at a fixed number of recordings**. The measured
 per-cell ratios SD(k_max)/SD(k=1) are 0.76, 0.75, 0.67, 0.68, 0.91 and 0.55 for 3σ RMS and 0.32,
@@ -212,7 +212,7 @@ performance expectation.
 **Reporting checklist**
 
 1. Report the number of training windows behind the threshold, not the dataset size — and where the budget is set in recordings, say how many windows each recording contributes.
-2. Report resampling variability from at least two sources — split composition and random seed.
+2. Report resampling variability from at least two sources — split composition and random seed — and state how that variability is estimated (pooled across evaluations or between folds), since the two definitions can reverse the verdict.
 3. Report the tie rate when the validation resolution is coarser than the false-alarm level of
    interest.
 4. Distinguish **new recordings** from **repeated sampling**; the latter cannot substitute for
@@ -401,7 +401,7 @@ end.
 The decisive evidence is comparative. Holding out whole bearings moved the reported rate from no
 alarms to 40.63% on the same detector and the same data; because the within-bearing figure is a
 single deterministic evaluation with 4.17-percentage-point resolution, the defensible ratio is
-about 3.5-fold rather than an order of magnitude. At a fixed sample size, and under the pooled SD definition, adding distinct training bearings reduced the spread for two detectors by 10–45% and 14–68% respectively (2 of 6 and 4 of 6 cells under the between-fold definition), while the third saturated at 67–100% false alarms and became uninformative rather than unstable. Sweeping the
+about 3.5-fold rather than an order of magnitude. At a fixed sample size, whether the detectors look stable depends on how cross-fold variation is defined and estimated. Under the pooled SD the spread of the reported rate fell in every condition for two detectors, by 10–45% and 14–68%; under between-fold variation the preregistered 80% criterion is met in neither, at 2 of 6 and 4 of 6, and the third detector saturated at 67–100% false alarms. We therefore report detector stability in this setting as definition-dependent rather than as an established improvement. Sweeping the
 healthy/degraded boundary moved the reported uncertainty by 2.40 percentage points on PRONOSTIA,
 where the admissible bearing set is unchanged; the larger XJTU-SY figure mixes the boundary effect
 with an inclusion effect.
@@ -421,7 +421,7 @@ holdout; fold means 0.00 to 97.10 percent). **(b)** Independent units. At a fixe
 training bearings from a single bearing yields mean false-positive rates of 16.9–57.6% for
 Isolation Forest and 23.7–49.5% for 3σ RMS (SD 23.9–44.4 pp and 33.0–48.2 pp respectively),
 whereas using every training bearing available in the cell (k_max between 2 and 4, depending on
-the condition) reduces the spread; the effect holds for 3σ RMS and Isolation Forest (6 of 6 operating conditions each under the pooled SD definition, 4 of 6 and 2 of 6 under the between-fold definition) but not for the Mahalanobis detector, which saturates at 67–
+the condition) reduces the spread; the effect holds for 3σ RMS and Isolation Forest under the pooled SD definition (6 of 6 conditions) but not under between-fold variation (4 of 6 and 2 of 6), so the preregistered 80% stability criterion holds only under the pooled reading; the Mahalanobis detector saturates at 67–
 100% false alarms and is therefore not testable this way. **(c)** Definition. Run-to-failure data
 carry no onset label, so the healthy/degraded boundary is an analyst choice; across five
 boundary rules the SD of the reported rate ranges over 2.40 pp on PRONOSTIA (inclusion set

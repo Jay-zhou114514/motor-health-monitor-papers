@@ -1,0 +1,142 @@
+==============================================================================
+LAYER-1 HUMANIZER SCAN �� detection only, no edits
+==============================================================================
+
+### sentence length
+  sentences=209  mean words=29.9
+  buckets: {'46+': 27, '31-45': 37, '21-30': 48, '<=20': 66}
+  longest sentences:
+    144 words: Holding the sample size fixed at 20 recordings and restricting training bearings to the **same operating condition** as the held-o
+    140 words: Using the same detector (Isolation Forest, 200 trees, max_samples 0.5), the same threshold
+rule (0.99 quantile of the training sco
+    125 words: We froze one rule (H = clip(max(20, 0.10��N), 20,
+60), requiring H/N �� 0.25) and swept five variants (fraction 5/10/20%, floor 10/2
+    114 words: At a fixed budget of 20 recordings, drawing
+training bearings from a single bearing yields mean false-positive rates of 16.9�C57.6%
+     88 words: Protocol
+
+**Datasets.** IMS `1st_test` (12 healthy recordings �� the files carrying the `2003.10.22*` name prefix, out of the 15 in
+     82 words: # PAPER v1.0 �� Ͷ��壨�����ϲ���
+
+> �� v0.1�Cv0.6 �ϲ���**��Ӧ�� citation-audit �� 4 ���ﾳ����**�� MFPT ��ע��
+> ����������Դ�� `CLAIM_EVIDENCE_MAP.md`�����ü� `REFER
+     73 words: Read against the observed effect sizes, the consequences are
+concrete: a study that reports a single within-bearing number may pre
+     73 words: At a fixed sample size, whether the reported rate looks stable depends on how cross-fold variation is defined and estimated: under
+     67 words: **Search cost and stability trade off.** With hyperparameters selected inside the training data,
+Isolation Forest met a pre-set 5%
+     64 words: One is held out for
+testing and the record budget is fixed at 20 (five recordings per bearing), so the sweep stops at the smaller 
+     64 words: **The selection criterion is often non-discriminative.** On IMS `1st_test` (12 healthy
+recordings, 84 windows of 0.25 s, 20 kHz), 
+     62 words: The verdicts depend on that choice: recomputing the same cells as the SD of per-fold mean rates gives 2 of 6 for Isolation Forest,
+
+### em dash (��)  (8 lines)
+  L1: # PAPER v1.0 �� Ͷ��壨�����ϲ���
+  L55: **Datasets.** IMS `1st_test` (12 healthy recordings �� the files carrying the `2003.10.22*` name prefix, out of the 15 in the archive �� 20 kHz, 1.024 s
+  L124: The rate in this table is computed over the windows of the held-out bearing, and the number of scored windows differs between folds, so per-evaluation
+  L214: 1. Report the number of training windows behind the threshold, not the dataset size �� and where the budget is set in recordings, say how many windows 
+  L215: 2. Report resampling variability from at least two sources �� split composition and random seed �� and state how that variability is estimated (pooled a
+  L300: exactly �� the metric has no room left to vary, so its spread collapses to zero and the question
+  L321: clean boundary effect. The same rule can bind on opposite sides in different datasets �� a floor of
+  L351: precedence �� none of our evidence is from our own hardware.
+
+### en dash (�C)  (16 lines)
+  L3: > �� v0.1�Cv0.6 �ϲ���**��Ӧ�� citation-audit �� 4 ���ﾳ����**�� MFPT ��ע��
+  L56: `4th_test` (6 recordings each), Paderborn K001�CK006 (6 healthy bearings, four operating
+  L69: change, a separate amendment was filed rather than the original being edited. The project's protocol grades evidence A�CD; no claim in this paper reach
+  L85: | within-bearing | recordings 1�C16 of each bearing | recordings 17�C20 of *the same* bearings | **0.00%** |
+  L113: | 3�� RMS threshold | **6/6** | **6/6** | 23.7�C49.5% (SD 33.0�C48.2 pp) |
+  L114: | Isolation Forest (200, 0.5) | **6/6** | **6/6** | 16.9�C57.6% (PRONOSTIA 16.9�C21.5%, XJTU-SY 54.5�C57.6%; SD 23.9�C44.4 pp) |
+  L115: | Mahalanobis distance | 2/6 | 2/6 | **66.8�C100%** (one cell exactly 100%; SD 0.0�C35.4 pp) |
+  L145: | PRONOSTIA (17 bearings, inclusion set unchanged) | 7.56 �C 9.96 pp | **2.40 pp** |
+  L146: | XJTU-SY (inclusion set changes with the rule) | 14.51 �C 19.70 pp | **5.19 pp** |
+  L299: alarms on 67�C100% of the healthy recordings of a different bearing, and in one cell on 100%
+  L360: estimated from 3�C4 bearings per cell within a condition.
+  L404: about 3.5-fold rather than an order of magnitude. At a fixed sample size, whether the detectors look stable depends on how cross-fold variation is def
+  L421: training bearings from a single bearing yields mean false-positive rates of 16.9�C57.6% for
+  L422: Isolation Forest and 23.7�C49.5% for 3�� RMS (SD 23.9�C44.4 pp and 33.0�C48.2 pp respectively),
+  L424: the condition) reduces the spread; the effect holds for 3�� RMS and Isolation Forest under the pooled SD definition (6 of 6 conditions) but not under b
+  L445: Reliability, 69*(1), 401�C412.
+
+### spaced hyphen used as a dash  (0 lines)
+  AI-word  'key ': 1
+  AI-word  'robust': 1
+
+### connectives
+  connective 'therefore': 13
+
+### claim strength
+  'substantially': 1
+  'markedly': 1
+  'proves': 1
+  'unambiguous': 1
+  'must': 3
+  'always': 1
+  'never': 2
+  'cannot': 5
+  'order of magnitude': 2
+  'first': 6
+  'we claim': 2
+  'decisive': 1
+  'may': 5
+  'could': 2
+  'appears': 2
+  'consistent with': 2
+  'we do not claim': 2
+  'not testable': 3
+
+### terminology variants
+  false-alarm                  16
+  false-positive               1
+  recording(s)                 38
+  record(s)                    13
+  fold(s)                      36
+  split                        9
+  pooled                       9
+  between-fold                 8
+  healthy/degraded boundary    4
+  healthy-phase rule           2
+  independent unit             8
+  scope                        11
+  definition                   8
+
+### not-X-but-Y and reversed contrast  (23 lines)
+  L24: Holding out whole bearings, rather than only held-out recordings, moved the same detector's
+  L46: The question we address is not which detector is most accurate, but how far the reported number
+  L69: change, a separate amendment was filed rather than the original being edited. The project's protocol grades evidence A�CD; no claim in this paper reach
+  L88: The two scopes are not equally replicated and we state this plainly. In the new-records arm of the within-bearing scope the training budget of 96 reco
+  L98: degenerate stability rather than a good result. The comparison reported here is therefore the
+  L100: rather than as evidence for the scope effect.
+  L124: The rate in this table is computed over the windows of the held-out bearing, and the number of scored windows differs between folds, so per-evaluation
+  L130: strict monotonicity Isolation Forest would be 5 of 6 rather than 6 of 6. The Mahalanobis
+  L131: exclusion is not a pre-defined saturation rule but a reclassification of a preregistered
+  L135: rather than as a failure. The wider cross-condition comparison is confounded with
+  L159: the original case re-evaluated rather than an independent reproduction. IMS contributes 0 of 24
+  L209: percentage points, so the 5 percent value is an operational cut for the comparison rather than a
+  L293: 3.5-fold rather than an order of magnitude (��3.1).
+  L298: saturation rather than disagreement. With a single training bearing the Mahalanobis detector
+  L306: detectors*, and treat saturation as a scope condition rather than a failure to report.
+  L311: reflect estimator instability rather than a property of the detector family. Both readings lead
+  L331: ### 5.4 A checklist rather than a method
+  L345: 2. If the unit effect is shown to arise from the covariance estimator rather than from unit
+  L349: remain a reporting detail rather than a first-order parameter.
+  L365: 5. Confounds are disclosed rather than removed: in the XJTU-SY boundary sweep the rule also
+  L386: `docs/EXPERIMENT_AFTERCARE.md` is an internal working-tree document rather than a published
+  L404: about 3.5-fold rather than an order of magnitude. At a fixed sample size, whether the detectors look stable depends on how cross-fold variation is def
+  L441: source is therefore attributed to the distributing organisation rather than to an original
+
+### triads (three-item lists)  (7 lines)
+  L124: The rate in this table is computed over the windows of the held-out bearing, and the number of scored windows differs between folds, so per-evaluation
+  L126: *Boundary*: the bearings left in a condition after the healthy-phase rule number 7, 7 and 3 for the three PRONOSTIA conditions and 4, 4 and 5 for the 
+  L169: independent-recomputation checks with a stored hash baseline. For EXP-V1-11, EXP-V2-01 and EXP-V2-02 no archived verification record could be located 
+  L206: 10^5 times the search cost of a 3�� RMS threshold and selected the same configuration in 33, 100 and 50 percent of folds across the three batches; a
+  L243: rank-instability study of [5] varied dataset selection, metrics, hyperparameters and seeds across
+  L373: 9. Window construction is fixed in the frozen protocol for IMS and MFPT only; for Paderborn, PRONOSTIA and XJTU-SY it is defined in the experiment cod
+  L418: **(a)** Evaluation scope. With detector, threshold and data fixed, holding out whole bearings
+
+### bold labels inside prose  (2 lines)
+  L86: | bearing-level holdout | all recordings of five bearings | all recordings of *the held-out* bearing | **bimodal**: three folds at or below 1.55% (0.0
+  L156: holding out one MFPT healthy recording) did not reproduce in any **independent** fold: 0 of 26 (EXP-V1-06 and EXP-V1-07; `experiments/EXP-V1-07-folds.
+
+scan complete
