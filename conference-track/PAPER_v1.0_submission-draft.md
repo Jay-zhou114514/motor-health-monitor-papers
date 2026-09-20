@@ -80,17 +80,15 @@ were re-run and compared hash-for-hash with their archived outputs (§3.5).
 
 Using the same detector (Isolation Forest, 200 trees, max_samples 0.5), the same threshold
 rule (0.99 quantile of the training scores) and the same dataset (Paderborn condition
-N15_M07_F10), we compared two evaluation scopes over the six healthy bearings:
+N15_M07_F10), we compared two evaluation scopes over the six healthy bearings
+(EXP-V2-03; `experiments/EXP-V2-03-summary.csv`, regime `R2_bearing_holdout`, arm `S2_new_records`):
 
 | Scope | Training used | Test used | Reported false-alarm rate |
 | --- | --- | --- | ---: |
 | within-bearing | recordings 1–16 of each bearing | recordings 17–20 of *the same* bearings | **0.00%** |
 | bearing-level holdout | all recordings of five bearings | all recordings of *the held-out* bearing | **bimodal**: three folds at or below 1.55% (0.00, 0.40, 1.55) and three at or above 69.40% (69.40, 75.35, 97.10); mean 40.63%, median 35.5%, between-fold SD 44.8 pp |
 
-The two scopes are not equally replicated and we state this plainly. In the within-bearing arm
-the training budget of 96 recordings equals the entire training pool, so all 100 replicates draw
-the same subset and the 0.00% figure is a single deterministic evaluation rather than a
-distribution. That figure is 0 alarms in 24 test recordings, which gives a resolution of 4.17
+The two scopes are not equally replicated and we state this plainly. In the new-records arm of the within-bearing scope the training budget of 96 recordings equals the entire training pool, so the draw is the identity and the 0.00% figure is a single deterministic evaluation rather than a distribution; the resampling arm at the same nominal size does not coincide in that way, and its within-bearing replicates vary (mean 4.96%, SD 12.1 pp). That figure is 0 alarms in 24 test recordings, which gives a resolution of 4.17
 percentage points and an exact one-sided 95% upper bound of 11.7%; the increase is therefore **at least** about
 3.5-fold. This is a lower bound only: zero alarms in 24 recordings is also consistent with true
 rates well below the 11.7% bound, so ratios larger than ten cannot be excluded. The holdout arm is replicated over six
@@ -110,8 +108,8 @@ without repeating the comparison.
 
 ### 3.2 Units: how many independent bearings were used for training?
 
-Holding the sample size fixed at 20 recordings and restricting training bearings to the **same
-operating condition** as the held-out bearing:
+Holding the sample size fixed at 20 recordings and restricting training bearings to the **same operating condition** as the held-out bearing (EXP-V2-05 for the Isolation Forest row, EXP-V2-06 for the 3σ RMS and Mahalanobis rows;
+`experiments/EXP-V2-05-summary.csv`, `EXP-V2-06-summary.csv`):
 
 | Detector | Negative rank correlation between k and SD | SD(k_max) < SD(k=1) | k=1 mean FP |
 | --- | ---: | ---: | ---: |
@@ -125,10 +123,10 @@ per-cell ratios SD(k_max)/SD(k=1) are 0.76, 0.75, 0.67, 0.68, 0.91 and 0.55 for 
 0.57, 0.34, 0.58, 0.86 and 0.52 for Isolation Forest, that is a reduction of roughly 10 to 45
 percent for the first detector and 14 to 68 percent for the second, not a uniform halving.
 
-*Boundary*: the bearings left in a condition after the healthy-phase rule number 7, 7 and 3 for the
-three PRONOSTIA conditions and 4, 4 and 5 for the three XJTU-SY conditions. One is held out for
-testing and the record budget is fixed at 20 (five recordings per bearing), so the sweep reaches
-k_max = 4, 4, 2 and 3, 3, 4 respectively, and the ratios above are taken at those points. The criterion
+The rate in this table is computed over the windows of the held-out bearing, and the number of scored windows differs between folds, so per-evaluation resolution is not constant across cells — the stored values imply denominators of 60, 30, 20 and 15 windows in the PRONOSTIA cells and 20, 10 and 5 in the XJTU-SY cells. Cells are therefore compared on the SD scale rather than on absolute rates.
+
+*Boundary*: the bearings left in a condition after the healthy-phase rule number 7, 7 and 3 for the three PRONOSTIA conditions and 4, 4 and 5 for the three XJTU-SY conditions. One is held out for
+testing and the record budget is fixed at 20 (five recordings per bearing), so the sweep stops at the smaller of the bearings available in the condition and four training bearings: k_max = 4, 4, 2 for the three PRONOSTIA conditions and 3, 3, 4 for the three XJTU-SY conditions, and the ratios above are taken at those points. The record budget is the binding constraint in three cells (PRONOSTIA C1 and C2, XJTU-SY 40Hz10kN); in the other three (PRONOSTIA C3, XJTU-SY 35Hz12kN and 37.5Hz11kN) the number of bearings left in the condition binds instead, after one is held out for testing. The criterion
 for "decreases" is the rank correlation between k and the SD, not strict monotonicity; one cell
 is non-monotone (XJTU-SY 40Hz10kN rises from 20.02 pp at k=3 to 20.69 pp at k=4), so under
 strict monotonicity Isolation Forest would be 5 of 6 rather than 6 of 6. The Mahalanobis
@@ -142,8 +140,7 @@ operating-condition diversity and is therefore not used for the claim above.
 ### 3.3 Definition: where does "normal" end?
 
 Run-to-failure datasets carry no onset label. We froze one rule (H = clip(max(20, 0.10·N), 20,
-60), requiring H/N ≤ 0.25) and swept five variants (fraction 5/10/20%, floor 10/20/30) on two
-independently collected run-to-failure datasets:
+60), requiring H/N ≤ 0.25) and swept five variants (fraction 5/10/20%, floor 10/20/30) on two independently collected run-to-failure datasets (EXP-V2-04; the per-rule result is recorded with its rule labels in `experiments/EXP-V2-04-xjtu-pronostia.md` §3, while the archived CSVs carry the main and sensitivity arms without a rule column):
 
 | Dataset | SD(k_max) across five rules | Range |
 | --- | --- | ---: |
@@ -158,7 +155,7 @@ alone; the cross-dataset claim is therefore **partially supported**.
 ### 3.4 What does not reproduce
 
 A covariance-geometry failure observed on a single fold (distance-inflation ratio 1.576 when
-holding out one MFPT healthy recording) did not reproduce in any **independent** fold: 0 of 26. The single
+holding out one MFPT healthy recording) did not reproduce in any **independent** fold: 0 of 26 (EXP-V1-06 and EXP-V1-07; `experiments/EXP-V1-07-folds.csv`). The single
 occurrence (MFPT, holding out `baseline_3.mat`, ratio 1.576) is the same fold in which the
 effect was originally observed, with the same scheme and the same 22 training windows, so it is
 the original case re-evaluated rather than an independent reproduction. IMS contributes 0 of 24
@@ -174,10 +171,7 @@ columns (only its wall-clock timing column differed). EXP-V1-05 to V1-09 passed 
 independent-recomputation checks with a stored hash baseline. EXP-V1-11, EXP-V2-01 and EXP-V2-02 carry
 invariant and recomputation checks together with an archived hash baseline, but have not been
 re-run for comparison. The experiment carrying §3.1 (EXP-V2-03) is in the same category and we
-flag this as a remaining limitation. Fourteen classes of analysis error are listed in the project's disclosure register
-(`docs/EXPERIMENT_AFTERCARE.md`) and were found and corrected during the study. Eleven lie in
-summary, verdict and verification logic, and three concern data handling such as seed
-derivation and file counting; none lies in the model fitting itself.
+flag this as a remaining limitation. Analysis errors were found and corrected during the study; the project keeps a standing register of the classes involved (`docs/EXPERIMENT_AFTERCARE.md`, an internal working-tree document). They lie in summary, verdict and verification logic and in data handling such as seed derivation and file counting; none lies in the model fitting itself.
 
 ### 3.6 The evaluation protocol itself
 
@@ -222,7 +216,7 @@ performance expectation.
 
 **Reporting checklist**
 
-1. Report the number of training windows behind the threshold, not the dataset size.
+1. Report the number of training windows behind the threshold, not the dataset size — and where the budget is set in recordings, say how many windows each recording contributes.
 2. Report resampling variability from at least two sources — split composition and random seed.
 3. Report the tie rate when the validation resolution is coarser than the false-alarm level of
    interest.
@@ -382,9 +376,25 @@ alternative.
    experiments have invariant and recomputation checks plus a stored hash baseline only.
 7. The experiment carrying the scope effect (§3.1) has not been through a re-run comparison;
    its evidence rests on invariant and recomputation checks only.
-8. Literature scope: the search covered Scopus and arXiv; Chinese-language venues and PHM
-   conference proceedings are not comprehensively covered. References [11] and [13] are cited
-   at title level only because their abstracts were not retrievable.
+8. Literature scope: the search covered Scopus and arXiv; Chinese-language venues and PHM conference proceedings are not comprehensively covered. References [11] and [13] are cited at title level only because their abstracts were not retrievable.
+9. Window construction is fixed in the frozen protocol for IMS and MFPT only; for Paderborn, PRONOSTIA and XJTU-SY it is defined in the experiment code.
+10. The rates in §3.2 are window-level and their resolution differs between folds, so absolute rates are not directly comparable across cells; the comparisons are made on the SD scale.
+
+---
+
+## Data and code availability
+
+The experiment registry, preregistrations, scripts, run logs, per-fold CSVs, hash files and figures
+behind this paper are archived under `experiments/` and `docs/` of
+`github.com/Jay-zhou114514/motor-health-monitor`, using the naming convention `EXP-V1-0X` /
+`EXP-V2-0X`; the manuscript sources, claim-to-evidence map and review records are in
+`github.com/Jay-zhou114514/motor-health-monitor-papers` under `conference-track/`. Paths of the form
+`docs/…` and `experiments/…` cited in the text are paths inside the first repository, and
+`docs/EXPERIMENT_AFTERCARE.md` is an internal working-tree document rather than a published
+artefact. All five datasets are third-party public datasets used under their own terms: IMS (NASA
+Prognostics Data Repository), MFPT (distributed by MathWorks), Paderborn (doi above), XJTU-SY (Wang
+et al., 2020) and PRONOSTIA (IEEE PHM 2012 Data Challenge, FEMTO-ST). No new data were generated.
+The AI-use disclosure required by the target venue is maintained in `docs/AI_USE_DISCLOSURE.md`.
 
 ---
 
