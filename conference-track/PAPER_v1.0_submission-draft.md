@@ -66,7 +66,7 @@ and Isolation Forest. The alarm threshold is always the 0.99 quantile of the *tr
 distribution; the test set never participates in any selection.
 
 **Discipline.** Every experiment was pre-registered before it was run; when a criterion had to
-change, a separate amendment was filed rather than the original being edited. The project's protocol grades evidence A–D; no claim in this paper reaches Level A, since every measurement comes from a single rig or a single split, and exploratory checks are labelled as such. Four of the experiments carrying the main claims
+change, a separate amendment was filed rather than the original being edited. Two variability definitions appear below and are kept apart throughout: the pooled SD over all fold × repeat evaluations stored in the summary CSVs, and the between-fold SD of per-fold mean rates. Section 3.1 uses the between-fold definition; Section 3.2 reports both and says which verdict depends on which. The project's protocol grades evidence A–D; no claim in this paper reaches Level A, since every measurement comes from a single rig or a single split, and exploratory checks are labelled as such. Four of the experiments carrying the main claims
 were re-run and compared hash-for-hash with their archived outputs (§3.5).
 
 ---
@@ -175,9 +175,7 @@ measurements on the small-sample regime that healthy-data-only monitoring actual
 
 **The selection criterion is often non-discriminative.** On IMS `1st_test` (12 healthy
 recordings, 84 windows of 0.25 s, 20 kHz), with a fixed test set of two recordings (14 windows)
-and 50 resamples of a 7-file fit and 3-file validation split, the minimum validation false-alarm
-rate was exactly zero in 86% of resamples and at least two candidate configurations tied at that
-minimum in 92%. Twenty-one validation windows cannot resolve differences below about 4.8
+and 50 resamples of a 7-file fit and 3-file validation split, the minimum validation false-alarm rate was exactly zero in 84% of the archived design-A Isolation Forest replicates, and at least two candidate configurations tied at that minimum in 92% (`experiments/EXP-V1-10-arm-extras.csv`; the per-replicate file carries no arm label, so the R = 50 and R = 200 arms are pooled). Twenty-one validation windows cannot resolve differences below about 4.8
 percentage points, which is the same order as the 1% false-alarm level the detector is trying to
 control. A nested leave-one-file-out protocol on the same data had already given a modal
 configuration share of 33%.
@@ -413,7 +411,7 @@ prospective self-collected study is the natural next test.
 **(a)** Evaluation scope. With detector, threshold and data fixed, holding out whole bearings
 raises the reported false-alarm rate from 0.00% (within-bearing) to 40.63% (bearing-level
 holdout; fold means 0.00 to 97.10 percent). **(b)** Independent units. At a fixed budget of 20 recordings, drawing
-training bearings from a single bearing yields mean false-positive rates of 16.9–57.6% for
+training bearings from a single bearing yields mean false-alarm rates of 16.9–57.6% for
 Isolation Forest and 23.7–49.5% for 3σ RMS (SD 23.9–44.4 pp and 33.0–48.2 pp respectively),
 whereas using every training bearing available in the cell (k_max between 2 and 4, depending on
 the condition) reduces the spread; the effect holds for 3σ RMS and Isolation Forest under the pooled SD definition (6 of 6 conditions) but not under between-fold variation (4 of 6 and 2 of 6), so the preregistered 80% stability criterion holds only under the pooled reading; the Mahalanobis detector saturates at 67–
