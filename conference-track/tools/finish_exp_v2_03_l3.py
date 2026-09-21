@@ -10,10 +10,10 @@ import io
 import os
 import re
 
-MASTER = r'C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor'
+MASTER = r'<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor'
 EXP = os.path.join(MASTER, 'experiments')
 OUTDIR = os.path.join(MASTER, 'outputs')
-TRACK = r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track'
+TRACK = r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track'
 PAIRS = [('exp_v2_03_summary.csv', 'EXP-V2-03-summary.csv'),
          ('exp_v2_03_curve.csv', 'EXP-V2-03-curve.csv'),
          ('exp_v2_03_regime_comparison.csv', 'EXP-V2-03-regime_comparison.csv')]

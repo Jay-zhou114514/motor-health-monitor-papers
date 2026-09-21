@@ -15,7 +15,7 @@ from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Inches, Pt
 
-TRACK = r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track'
+TRACK = r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track'
 MD = os.path.join(TRACK, 'PAPER_v1.0_submission-draft.md')
 TEMPLATE = os.path.join(TRACK, 'latex', 'isdmd-template', 'ISDMD 2026 Template',
                         'WordGuidelines', 'WordGuidelines', 'IOP-ConfSer-template.docx')

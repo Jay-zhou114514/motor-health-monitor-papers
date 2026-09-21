@@ -12,8 +12,8 @@ import io
 import os
 import re
 
-SRC = r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\PAPER_v1.0_submission-draft.md'
-OUT = r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\latex\PAPER_v1.0.tex'
+SRC = r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\PAPER_v1.0_submission-draft.md'
+OUT = r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\latex\PAPER_v1.0.tex'
 
 UNICODE = [
     ('σ', r'$\sigma$'), ('×', r'$\times$'), ('≈', r'$\approx$'), ('≤', r'$\le$'),

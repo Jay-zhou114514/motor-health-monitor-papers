@@ -7,7 +7,7 @@ import io
 import os
 
 BRIEF = os.path.join(
-    r"C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor",
+    r"<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor",
     "docs", "plans", "NEXT_SESSION_BRIEF.md",
 )
 

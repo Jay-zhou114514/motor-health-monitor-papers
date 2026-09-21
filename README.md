@@ -6,7 +6,7 @@ Conference-first + Journal-extension，共享同一个 Master Research Project�
 
 | 线 | 位置 | 职责 |
 | --- | --- | --- |
-| Master Project | [Jay-zhou114514/motor-health-monitor](https://github.com/Jay-zhou114514/motor-health-monitor) | 全部实验、代码、原始结果、失败结果、图表、实验日志与版本记录（唯一事实来源） |
+| Master Project | [<ACCOUNT>/motor-health-monitor](https://github.com/<ACCOUNT>/motor-health-monitor) | 全部实验、代码、原始结果、失败结果、图表、实验日志与版本记录（唯一事实来源） |
 | Conference Track | `conference-track/` | 从 Master 抽取一个已闭环的核心研究故事，最小完整闭环 |
 | Journal Track | `journal-track/` | 在会议核心发现上扩展机制验证、稳健性、跨数据集与真实实验 |
 

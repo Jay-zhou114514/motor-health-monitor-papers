@@ -1,5 +1,5 @@
 Nature Figure Static Preflight
-source: C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor\src\make_fig1_concept.py
+source: <WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor\src\make_fig1_concept.py
 backend: python
 
 [PASS] SOURCE-SYNTAX: Python source parses successfully

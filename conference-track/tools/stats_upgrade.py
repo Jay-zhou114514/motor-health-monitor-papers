@@ -14,7 +14,7 @@ import statistics as st
 
 import numpy as np
 
-EXP = r'C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments'
+EXP = r'<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments'
 RNG = np.random.default_rng(20260921)
 B = 10000
 

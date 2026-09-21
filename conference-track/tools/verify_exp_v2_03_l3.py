@@ -10,7 +10,7 @@ import io
 import os
 import subprocess
 
-MASTER = r'C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor'
+MASTER = r'<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor'
 EXP = os.path.join(MASTER, 'experiments')
 START_MARKER = os.path.join(EXP, 'EXP-V2-03-hashes-BEFORE-rerun.txt')
 FILES = ['EXP-V2-03-summary.csv', 'EXP-V2-03-curve.csv', 'EXP-V2-03-regime_comparison.csv',

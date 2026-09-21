@@ -8,8 +8,8 @@ import os
 import re
 import zipfile
 
-DOCX = r'C:\Users\32597\Desktop\会议推荐.docx'
-OUT = r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\会议推荐_提取.txt'
+DOCX = r'<WORKDIR>\Desktop\会议推荐.docx'
+OUT = r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\会议推荐_提取.txt'
 
 with zipfile.ZipFile(DOCX) as zf:
     names = zf.namelist()

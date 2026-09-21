@@ -111,6 +111,6 @@ XJTU-S
 ## ��������������
 
 ���ı����ʵ��ע�����Ԥע�ᡢ�ű���������־������ CSV����ϣ�ļ���ͼ���鵵��
-`github.com/Jay-zhou114514/motor-health-monitor` 
+`github.com/<ACCOUNT>/motor-health-monitor` 
 
 scan complete

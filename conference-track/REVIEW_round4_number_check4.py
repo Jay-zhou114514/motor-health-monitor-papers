@@ -7,7 +7,7 @@ from __future__ import annotations
 import csv
 import os
 
-EXP = r"C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments"
+EXP = r"<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments"
 
 
 def load(name):

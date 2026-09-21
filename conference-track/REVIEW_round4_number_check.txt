@@ -27,7 +27,7 @@ B. ��3.2 unit effect  (sources: EXP-V2-05-summary.csv, EXP-V2-06-summary.csv
   paper: iForest     ratios 0.32, 0.57, 0.34, 0.58, 0.86, 0.52
   A_rms_3sigma    k_max=[4, 4, 2, 3, 3, 4] ratios=[0.76, 0.75, 0.67, 0.68, 0.91, 0.55] k=1 mean FP 23.69-49.5% SD 32.97-48.21pp count(km<k1)=6/6
 Traceback (most recent call last):
-  File "C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\REVIEW_round4_number_check.py", line 111, in <module>
+  File "<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\REVIEW_round4_number_check.py", line 111, in <module>
     ratios.append(round(num(s[max(ks)]["sd_fp"]) / num(s[1]["sd_fp"]), 2))
                         ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
 ZeroDivisionError: division by zero

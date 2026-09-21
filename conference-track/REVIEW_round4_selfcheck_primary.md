@@ -344,7 +344,7 @@
   still unfixed (RC-m5, RC-m10) - so RC-m5 and RC-m10 are echoes of round 2, as noted in the provenance
   note.
 - Round 2 **R1-M6** (criterion, fold counts, Mahalanobis exclusion): the criterion, the non-monotone
-  cell, the per-cell bearing counts and the reclassification are all now disclosed. One residual: 
+  cell, the per-cell bearing counts and the reclassification are all now disclosed. One residual:
   Limitations item 2 says `the unit effect is estimated from 3-4 bearings per cell within a condition`,
   while the sweep's per-cell k_max is 2-4 (PRONOSTIA C3 reaches only k = 2) and the available training
   pools are 6, 6, 2 and 3, 3, 4. Minor wording, not re-reported as a separate concern.

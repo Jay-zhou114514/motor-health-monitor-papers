@@ -15,7 +15,7 @@ import io
 import os
 import re
 
-EXP = r'C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments'
+EXP = r'<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments'
 RECORD = os.path.join(EXP, 'EXP-V2-04-xjtu-pronostia.md')
 
 # ---------------------------------------------------------------- product 1
@@ -85,7 +85,7 @@ print(f'wrote {os.path.basename(out2)}: {len(groups)} groups')
 # ---------------------------------------------------------------- feasibility probe
 print('\n--- EXP-V2-03 re-run feasibility ---')
 for probe in (r'E:\\MotorHealthMonitorData',
-              r'C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor\data\raw'):
+              r'<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor\data\raw'):
     print(f'data root {probe}: {"present" if os.path.isdir(probe) else "missing"}')
 for name in ('EXP-V2-03-run.log', 'EXP-V2-03-bearing-level-holdout.md'):
     path = os.path.join(EXP, name)

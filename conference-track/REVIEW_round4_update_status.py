@@ -7,7 +7,7 @@ import io
 import os
 
 STATUS = os.path.join(
-    r"C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers",
+    r"<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers",
     "conference-track", "STATUS.md",
 )
 

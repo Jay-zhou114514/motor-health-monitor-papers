@@ -7,7 +7,7 @@ import csv
 import os
 import statistics as st
 
-EXP = r"C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments"
+EXP = r"<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments"
 CLAIMED = {
     "EXP-V2-05-raw.csv": {"Isolation Forest": "6/6 (pooled SD)"},
     "EXP-V2-06-raw.csv": {"A_rms_3sigma": "6/6 (pooled SD)",

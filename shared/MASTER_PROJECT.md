@@ -2,7 +2,7 @@
 
 ## 唯一事实来源
 
-Master 仓库：<https://github.com/Jay-zhou114514/motor-health-monitor>
+Master 仓库：<https://github.com/<ACCOUNT>/motor-health-monitor>
 
 所有内容都保存在 Master，论文仓库只做"抽取 + 组织"：
 

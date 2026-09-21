@@ -7,8 +7,8 @@ import io
 import os
 import re
 
-PAPERS = r"C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers"
-MASTER = r"C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor"
+PAPERS = r"<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers"
+MASTER = r"<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor"
 STATUS = os.path.join(PAPERS, "conference-track", "STATUS.md")
 BRIEF = os.path.join(MASTER, "docs", "plans", "NEXT_SESSION_BRIEF.md")
 

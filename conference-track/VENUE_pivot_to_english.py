@@ -8,15 +8,15 @@ import os
 import re
 
 ZH = os.path.join(
-    r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers',
+    r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers',
     'conference-track', 'PAPER_v1.0_中文版.md',
 )
 STATUS = os.path.join(
-    r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers',
+    r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers',
     'conference-track', 'STATUS.md',
 )
 BRIEF = os.path.join(
-    r'C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor',
+    r'<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor',
     'docs', 'plans', 'NEXT_SESSION_BRIEF.md',
 )
 

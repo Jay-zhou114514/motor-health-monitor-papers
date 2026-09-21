@@ -7,7 +7,7 @@ import io
 import os
 import re
 
-TRACK = r"C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track"
+TRACK = r"<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track"
 ZH = os.path.join(TRACK, "PAPER_v1.0_中文版.md")
 
 with io.open(ZH, "r", encoding="utf-8", newline="") as fh:

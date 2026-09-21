@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import io
 
-V4 = (r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers'
+V4 = (r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers'
       r'\conference-track\tools\build_isdmd_v4.py')
 
 with io.open(V4, 'r', encoding='utf-8') as fh:

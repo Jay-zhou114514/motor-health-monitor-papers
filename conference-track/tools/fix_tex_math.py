@@ -6,7 +6,7 @@ from __future__ import annotations
 import io
 import re
 
-TEX = r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\latex\PAPER_v1.0.tex'
+TEX = r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\latex\PAPER_v1.0.tex'
 
 with io.open(TEX, 'r', encoding='utf-8', newline='') as fh:
     text = fh.read()

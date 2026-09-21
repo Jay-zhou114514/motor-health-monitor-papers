@@ -15,7 +15,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Inches, Pt
 
-TRACK = r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track'
+TRACK = r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track'
 MD = os.path.join(TRACK, 'PAPER_v1.0_submission-draft.md')
 REFS = os.path.join(TRACK, 'REFERENCES.md')
 TEMPLATE = os.path.join(TRACK, 'latex', 'isdmd-template', 'ISDMD 2026 Template',

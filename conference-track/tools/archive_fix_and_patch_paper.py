@@ -8,8 +8,8 @@ import io
 import os
 import re
 
-EXP = r'C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments'
-TRACK = r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track'
+EXP = r'<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments'
+TRACK = r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track'
 EN = os.path.join(TRACK, 'PAPER_v1.0_submission-draft.md')
 ZH = os.path.join(TRACK, 'PAPER_v1.0_中文版.md')
 

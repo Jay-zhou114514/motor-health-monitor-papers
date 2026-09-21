@@ -13,7 +13,7 @@ import io
 import os
 import re
 
-TRACK = r"C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track"
+TRACK = r"<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track"
 PAPER = os.path.join(TRACK, "PAPER_v1.0_submission-draft.md")
 CLAIMS = os.path.join(TRACK, "CLAIM_EVIDENCE_MAP.md")
 

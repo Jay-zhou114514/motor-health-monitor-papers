@@ -11,7 +11,7 @@ import io
 import os
 import re
 
-MASTER = r"C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor"
+MASTER = r"<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor"
 BRIEF = os.path.join(MASTER, "docs", "plans", "NEXT_SESSION_BRIEF.md")
 AFTERCARE = os.path.join(MASTER, "docs", "EXPERIMENT_AFTERCARE.md")
 

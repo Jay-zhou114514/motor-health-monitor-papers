@@ -7,7 +7,7 @@ import io
 import os
 import textwrap
 
-TRACK = r"C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track"
+TRACK = r"<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track"
 PAPER = os.path.join(TRACK, "PAPER_v1.0_submission-draft.md")
 
 START = "The experiment registry, preregistrations, scripts, run logs, per-fold CSVs,"
@@ -30,8 +30,8 @@ for broken, fixed in (
         print(f"  ok  repaired {broken!r}")
 
 checks = [
-    "github.com/Jay-zhou114514/motor-health-monitor`",
-    "github.com/Jay-zhou114514/motor-health-monitor-papers`",
+    "github.com/<ACCOUNT>/motor-health-monitor`",
+    "github.com/<ACCOUNT>/motor-health-monitor-papers`",
     "an internal working-tree document",
 ]
 for check in checks:

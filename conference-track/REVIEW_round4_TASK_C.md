@@ -12,7 +12,7 @@
 - 本机沙箱无法直接启动进程（报错 `windows elevated sandbox ... read-only carveouts`）。
   **所有 shell 命令都必须带 `sandbox_permissions: "require_escalated"` 执行**，否则一律失败；
   执行时在 `justification` 写一句原因即可。
-- 用绝对路径，不要依赖 `cd`。当前工作目录 `C:\Users\32597`，
+- 用绝对路径，不要依赖 `cd`。当前工作目录 `<WORKDIR>`，
   **两个仓库都不在 cwd**，必须写全路径。
 - 可用工具：`Get-Content` / `Get-ChildItem` / `Select-String`（`rg` 亦可）。
 
@@ -27,8 +27,8 @@
 
 | 用途 | 路径 |
 | --- | --- |
-| Master（唯一事实来源，含 `experiments/` 与 `outputs/` 归档产物） | `C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor` |
-| 论文库 | `C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers` |
+| Master（唯一事实来源，含 `experiments/` 与 `outputs/` 归档产物） | `<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor` |
+| 论文库 | `<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers` |
 | **待审稿件（必读全文，446 行）** | `...\motor-health-monitor-papers\conference-track\PAPER_v1.0_submission-draft.md` |
 
 配套文件（同目录 `conference-track\`）：`CLAIM_EVIDENCE_MAP.md`、`REFERENCES.md`、
@@ -90,7 +90,7 @@ Round 1 / Round 2 的条目只需抽查，不必逐条。
 ## 6. 输出要求（强制，违反即视为任务失败）
 
 1. 完整报告写入：
-   `C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\REVIEW_round4_reviewerC.md`
+   `<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\REVIEW_round4_reviewerC.md`
 2. 结构对齐 `REVIEW_round3_reviewerB.md`：
    - 开头 **Provenance and limitation note**：含"本报告是内部质量控制、非盲审"；
      第一段抄写一句**你收到的任务摘要**（证明任务文本确实到达）；

@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import io
 
-V2 = (r'C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers'
+V2 = (r'<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers'
       r'\conference-track\tools\md2docx_isdmd2.py')
 
 with io.open(V2, 'r', encoding='utf-8') as fh:

@@ -1,5 +1,5 @@
 Nature Figure PDF Text Audit
-pdf: C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor\docs\figures\fig1_three_faces.pdf
+pdf: <WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor\docs\figures\fig1_three_faces.pdf
 minimum required: 5 pt
 minimum found: 6.5 pt
 text runs: 41

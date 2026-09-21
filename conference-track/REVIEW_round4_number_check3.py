@@ -8,7 +8,7 @@ import csv
 import os
 import statistics
 
-EXP = r"C:\Users\32597\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments"
+EXP = r"<WORKDIR>\Documents\Codex\2026-09-06\github\motor-health-monitor\experiments"
 
 
 def load(name):

@@ -8,7 +8,7 @@ EXP-V2-05-raw.csv
   Isolation Forest XJTU-SY    37.5Hz11kN     k=1 between-fold SD 13.09 pp (folds=4) -> k=3 30.06 pp | SD drops: NO | monotone: no
   Isolation Forest XJTU-SY    40Hz10kN       k=1 between-fold SD 14.16 pp (folds=5) -> k=4 18.89 pp | SD drops: NO | monotone: no
 Traceback (most recent call last):
-  File "C:\Users\32597\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\REVIEW_round4_sd_definition_check.py", line 63, in <module>
+  File "<WORKDIR>\Documents\Codex\2026-09-15\github\motor-health-monitor-papers\conference-track\REVIEW_round4_sd_definition_check.py", line 63, in <module>
     f"(paper claims {KNOWN[name].get(detector, '?')})")
                      ~~~~~^^^^^^
 KeyError: 'EXP-V2-05-raw.csv'

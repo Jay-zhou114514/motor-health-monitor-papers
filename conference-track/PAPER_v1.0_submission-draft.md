@@ -371,9 +371,9 @@ alternative.
 
 The experiment registry, preregistrations, scripts, run logs, per-fold CSVs, hash files and figures
 behind this paper are archived under `experiments/` and `docs/` of
-`github.com/Jay-zhou114514/motor-health-monitor`, using the naming convention `EXP-V1-0X` /
+`github.com/<ACCOUNT>/motor-health-monitor`, using the naming convention `EXP-V1-0X` /
 `EXP-V2-0X`; the manuscript sources, claim-to-evidence map and review records are in
-`github.com/Jay-zhou114514/motor-health-monitor-papers` under `conference-track/`. Paths of the form
+`github.com/<ACCOUNT>/motor-health-monitor-papers` under `conference-track/`. Paths of the form
 `docs/…` and `experiments/…` cited in the text are paths inside the first repository, and
 `docs/EXPERIMENT_AFTERCARE.md` is an internal working-tree document rather than a published
 artefact. All five datasets are third-party public datasets used under their own terms: IMS (NASA
